@@ -15,9 +15,8 @@ const port = 9000
 app.use(cors())
 app.use(express.json()) // body-parser for parsing requests with application/json header
 app.use(pathLogger)
-
 // use the routes
-const routes = require('./routes/allRoutes')
+const routes = require('./routes/allroutes')
 app.use('/', routes)
 
 app.listen(port, () => {

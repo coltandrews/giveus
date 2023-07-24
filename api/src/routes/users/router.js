@@ -1,5 +1,7 @@
 const { Router } = require('express')
+
 const {showAll, register} = require('./controller')
+
 
 //import middleware
 const { authenticate } = require('../../middleware/auth')
@@ -11,7 +13,6 @@ const router = new Router()
 
 router.get('/', authenticate, showAll)
 router.post('/register', register)
-
 
 // exporting router
 module.exports = router

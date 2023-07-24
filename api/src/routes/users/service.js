@@ -25,3 +25,4 @@ exports.createUser = async (userData) => {
     })
     .returning(["id", "username", "role"]); // return the data you need excluding the password
 };
+
