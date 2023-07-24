@@ -1,30 +1,30 @@
-import { CssBaseline } from '@mui/material' 
-import { createTheme, ThemeProvider  } from '@mui/material/styles'
+import { CssBaseline } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
-    mode: 'light',
+    mode: "light",
     primary: {
-      main: '#1976d2',
+      main: "#1976d2",
     },
     secondary: {
-      main: '#f50057',
+      main: "#f50057",
+    },
+    background: {
+      default: "#F5F3F3",
     },
   },
-})
-
+});
 
 const ThemeContextProvider = (props) => {
-  const {
-    children
-  } = props
+  const { children } = props;
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       {children}
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default ThemeContextProvider
+export default ThemeContextProvider;

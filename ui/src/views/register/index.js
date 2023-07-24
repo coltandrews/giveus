@@ -11,11 +11,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import ThemeContextProvider from "../../context/themeContext";
-import { ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../utility/api";
 import { setToken } from "../../utility/utils";
@@ -26,6 +23,8 @@ function Register() {
   const [userData, setUserdata] = useState({
     role: "donor",
   });
+
+  const navigate = useNavigate()
 
   const handleChange = (event) => {
     setUserdata({ ...userData, [event.target.name]: event.target.value });
@@ -41,6 +40,7 @@ function Register() {
       console.log(response.token);
       setToken(response.token);
       //redirect user to success page
+      navigate('/')
     } catch (error) {
       console.log(error);
     }
@@ -48,7 +48,7 @@ function Register() {
 
   return (
     <div>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" width="500px">
         <CssBaseline />
         <Box
           sx={{

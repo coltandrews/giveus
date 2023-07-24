@@ -10,9 +10,6 @@ function App() {
   return (
     <div className="App">
       <ThemeContextProvider>
-        <Register></Register>
-      </ThemeContextProvider>
-      {/* <ThemeContextProvider>
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<Home/>}/>
@@ -20,7 +17,7 @@ function App() {
             <Route path="/register" element={<Register/>}/>
           </Route>
         </Routes>
-      </ThemeContextProvider> */}
+      </ThemeContextProvider>
     </div>
   );
 }
