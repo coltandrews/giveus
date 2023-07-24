@@ -9,4 +9,5 @@ exports.seed = async function(knex) {
   await knex('users').del()
   await knex('users').insert(auctioneers);
   await knex('users').insert(donors);
+  await knex.raw(`ALTER SEQUENCE users_id_seq RESTART WITH ${auctioneers.length + donors.length + 1}`)
 };

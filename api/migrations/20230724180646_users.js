@@ -13,7 +13,7 @@ exports.up = function(knex) {
     table.string('password', 72).notNullable();
     table.string('firstname', 50).nullable();
     table.string('lastname', 50).nullable()
-    table.string('address', 255).notNullable();
+    table.string('address', 255).nullable()
     table.string('phoneNumber', 20).notNullable();
     table.text('description')
     table.string('image', 255)
