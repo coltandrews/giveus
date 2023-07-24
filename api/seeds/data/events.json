@@ -1,0 +1,71 @@
+[{
+  "id": 1,
+  "userId": 1,
+  "eventName": "East Cooper Gala",
+  "eventDate": "7/18/2023",
+  "description": null,
+  "image": null
+}, {
+  "id": 2,
+  "userId": 2,
+  "eventName": "Eastside Community Fundraiser",
+  "eventDate": "9/30/2023",
+  "description": null,
+  "image": null
+}, {
+  "id": 3,
+  "userId": 3,
+  "eventName": "Books for Children Auction",
+  "eventDate": "5/20/2023",
+  "description": null,
+  "image": null
+}, {
+  "id": 4,
+  "userId": 4,
+  "eventName": "Darkness to Light Annual Gala",
+  "eventDate": "8/4/2023",
+  "description": null,
+  "image": null
+}, {
+  "id": 5,
+  "userId": 5,
+  "eventName": "Lowcountry Orphan Relief Charity Event",
+  "eventDate": "10/29/2023",
+  "description": null,
+  "image": null
+}, {
+  "id": 6,
+  "userId": 6,
+  "eventName": "My Sister's House Annual Gala",
+  "eventDate": "8/17/2023",
+  "description": null,
+  "image": null
+}, {
+  "id": 7,
+  "userId": 7,
+  "eventName": "Rein & Shine Ride for Charity",
+  "eventDate": "4/11/2024",
+  "description": null,
+  "image": null
+}, {
+  "id": 8,
+  "userId": 8,
+  "eventName": "Fields to Families Annual Gala",
+  "eventDate": "4/26/2024",
+  "description": null,
+  "image": null
+}, {
+  "id": 9,
+  "userId": 9,
+  "eventName": "Lowcountry Food Bank Annual Fundraiser",
+  "eventDate": "6/14/2024",
+  "description": null,
+  "image": null
+}, {
+  "id": 10,
+  "userId": 10,
+  "eventName": "The Formation Project Gala",
+  "eventDate": "1/18/2024",
+  "description": null,
+  "image": null
+}]
