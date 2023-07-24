@@ -17,3 +17,24 @@ export const register = async(data) => {
 
   return responseData
 }
+
+export const login = async (data) => {
+  const { username, password } = data;
+
+  const response = await fetch(`${baseUrl}/users/login`, {
+    method: "POST",
+    headers: new Headers({
+      Authorization: `Basic ${btoa(`${username}:${password}`)}`, //btoa is only deprecated in Node.js not in browser environments!
+    }),
+  });
+
+  const responseData = await response.json();
+
+  if (!response.ok) {
+    throw new Error(
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
+  }
+
+  return responseData;
+};
