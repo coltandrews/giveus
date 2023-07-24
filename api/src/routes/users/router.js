@@ -1,5 +1,7 @@
 const { Router } = require('express')
-const {showAll, showMe} = require('./controller')
+
+const {showAll, register} = require('./controller')
+
 
 //import middleware
 const { authenticate } = require('../../middleware/auth')
@@ -10,8 +12,7 @@ const router = new Router()
 // define routes
 
 router.get('/', authenticate, showAll)
-
-
+router.post('/register', register)
 
 // exporting router
 module.exports = router
