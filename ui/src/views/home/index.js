@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { getMe, getAllDonations, getAllNonprofits } from "../../utility/api";
 import { getToken } from "../../utility/utils";
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import { Box, Grid, Stack, Button } from "@mui/material";
 import * as React from "react";
 import DonationCard from "../../components/DonationCard";
-import NonprofitCard from "../../components/NonprofitCard"
+import NonprofitCard from "../../components/NonprofitCard";
 const boatCruiseImg = require("../../assets/images/donated_item_1.jpeg");
 function Home() {
   const [me, setMe] = useState();
@@ -55,6 +55,7 @@ function Home() {
           minHeight="100vh"
           marginBottom="50px"
         >
+
           <Grid
             container
             spacing={3}
@@ -62,7 +63,7 @@ function Home() {
             sx={{ width: "80%", mt: "2%" }}
           >
             {donations.map((donation) => {
-              return <DonationCard donation={donation}></DonationCard>
+              return <DonationCard donation={donation}></DonationCard>;
             })}
           </Grid>
         </Box>
@@ -87,7 +88,7 @@ function Home() {
             sx={{ width: "80%", mt: "2%" }}
           >
             {nonprofits.map((nonprofit) => {
-              return <NonprofitCard nonprofit={nonprofit}></NonprofitCard>
+              return <NonprofitCard nonprofit={nonprofit}></NonprofitCard>;
             })}
           </Grid>
         </Box>

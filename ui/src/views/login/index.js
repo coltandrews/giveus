@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { login } from "../../utility/api";
 import { setToken } from "../../utility/utils";
 import LoginIcon from "@mui/icons-material/Login";
-import { Paper } from "@mui/material";
+import { Stack } from "@mui/material";
 
 function Login() {
   const [userData, setUserdata] = useState();
@@ -92,7 +92,13 @@ function Login() {
                     />
                   </Grid>
                   <Grid item xs={12}>
-                    <Typography fontStyle={'italic'} fontSize="12px" color={'red'}>Invalid username/password combination</Typography>
+                    <Typography
+                      fontStyle={"italic"}
+                      fontSize="12px"
+                      color={"red"}
+                    >
+                      Invalid username/password combination
+                    </Typography>
                   </Grid>
                 </>
               ) : (
