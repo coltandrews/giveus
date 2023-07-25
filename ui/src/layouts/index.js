@@ -5,10 +5,10 @@ import Navbar from "./Navbar";
 
 const Layout = (props) => {
   return (
-    <Paper>
+    <>
       <Navbar />
       <Outlet />
-    </Paper>
+    </>
   );
 };
 

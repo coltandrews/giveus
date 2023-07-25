@@ -1,9 +1,8 @@
 import { getToken } from "./utils";
 
-const baseUrl = 'http://localhost:9000'
+const baseUrl = "http://localhost:9000";
 
-export const register = async(data) => {
-
+export const register = async (data) => {
   const response = await fetch(`${baseUrl}/users/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -18,8 +17,8 @@ export const register = async(data) => {
     );
   }
 
-  return responseData
-}
+  return responseData;
+};
 
 export const login = async (data) => {
   const { username, password } = data;
@@ -48,6 +47,26 @@ export const getMe = async () => {
     throw new Error(`Missing User Token`);
   }
   const response = await fetch(`${baseUrl}/users/me`, {
+    method: "GET",
+    headers: new Headers({
+      Authorization: `Bearer ${token}`, //Token is required for protected Routes
+    }),
+  });
+  
+  const responseData = await response.json();
+  if (!response.ok) {
+    throw new Error(`Status Code: ${response?.status} - ${responseData?.message}`);
+  }
+  console.log('response:',responseData)
+  return responseData;
+};
+
+export const getAllDonations = async () => {
+  const token = getToken();
+  if (!token) {
+    throw new Error(`Missing User Token`);
+  }
+  const response = await fetch(`${baseUrl}/donations/`, {
     method: "GET",
     headers: new Headers({
       Authorization: `Bearer ${token}`, //Token is required for protected Routes

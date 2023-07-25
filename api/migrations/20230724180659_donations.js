@@ -10,7 +10,7 @@ exports.up = function(knex) {
     table.integer('eventId').notNullable().references('id').inTable('events').onDelete('CASCADE');
     table.string('itemName', 50).notNullable();
     table.decimal('value',14,2).nullable();
-    table.string('description', 255).nullable();
+    table.string('itemDescription', 255).nullable();
     table.string('image', 255).nullable();
     table.timestamp('createdAt').defaultTo(knex.fn.now())
   })
