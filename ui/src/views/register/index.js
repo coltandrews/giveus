@@ -48,11 +48,11 @@ function Register() {
 
   return (
     <div>
-      <Container component="main" maxWidth="xs" width="500px">
+      <Container component="main" maxWidth="xs" sx={{padding: '5%'}}>
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginBottom: 6,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -203,9 +203,9 @@ function Register() {
             >
               Sign Up
             </Button>
-            <Grid container justifyContent="flex-end">
+            <Grid container justifyContent="flex-end" marginBottom={3}>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
