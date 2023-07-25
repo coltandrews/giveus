@@ -40,9 +40,9 @@ exports.register = async (req, res) => {
   try {
     const userData = req.body;
     const user = await createUser(userData);
-
+    console.log(user)
     // Create a JWT and send it back to the client
-    const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY);
+    const token = jwt.sign({ id: user[0].id }, process.env.SECRET_KEY);
     return res.json({ token });
   } catch (error) {
     console.log(error);
