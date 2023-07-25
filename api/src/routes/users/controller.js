@@ -3,7 +3,7 @@ require("dotenv").config();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const {  findAll, createUser, findByUsername, findById } = require('./service')
+const {  findAll, createUser, findByUsername, findById, findAllNonprofits } = require('./service')
 
 exports.showAll = async (req, res) => {
   try {
@@ -15,6 +15,19 @@ exports.showAll = async (req, res) => {
     }
 
     const allUsers = await findAll();
+    return res.json(allUsers);
+
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json();
+  }
+};
+
+exports.showAllNonprofits = async (req, res) => {
+  try {
+
+    const allUsers = await findAllNonprofits();
+    console.log(allUsers)
     return res.json(allUsers);
 
   } catch (error) {
@@ -41,6 +54,7 @@ exports.register = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 
 exports.login = async (req, res) => {
   try {

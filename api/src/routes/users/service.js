@@ -7,6 +7,11 @@ exports.findAll = async () => {
   return results;
 };
 
+exports.findAllNonprofits = async () => {
+  const results = await knex("users").select("*").where('role', 'auctioneer');
+  return results;
+};
+
 exports.createUser = async (userData) => {
   const { username, password } = userData;
 
