@@ -33,7 +33,7 @@ function Login() {
       console.log(response.token);
       setToken(response.token);
       //redirect user to success page
-      navigate("/");
+      navigate("/home");
 
       window.location.reload()
     } catch (error) {
