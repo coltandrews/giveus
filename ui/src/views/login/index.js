@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { login } from "../../utility/api";
 import { setToken } from "../../utility/utils";
 import LoginIcon from "@mui/icons-material/Login";
+import { Paper } from "@mui/material";
 
 function Login() {
   const [userData, setUserdata] = useState();
@@ -33,6 +34,8 @@ function Login() {
       setToken(response.token);
       //redirect user to success page
       navigate("/");
+
+      window.location.reload()
     } catch (error) {
       console.log(error);
     }
@@ -40,11 +43,11 @@ function Login() {
 
   return (
     <>
-      <Container component="main" maxWidth="xs" width="500px">
+      <Container component="main" maxWidth="xs" sx={{ padding: '5%' }}>
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginBottom: 2,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -60,10 +63,9 @@ function Login() {
             component="form"
             noValidate
             onSubmit={handleSubmit}
-            sx={{ mt: 3 }}
+            sx={{ mt: 3, mb: 3, width: "75%" }}
           >
             <Grid container spacing={2}>
-              
               <Grid item xs={12}>
                 <TextField
                   required
@@ -98,7 +100,7 @@ function Login() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link to={'/register'} variant="body2">
+                <Link href="/register" variant="body2">
                   Need an account? Sign up here
                 </Link>
               </Grid>

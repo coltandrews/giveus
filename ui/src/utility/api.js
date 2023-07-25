@@ -1,4 +1,7 @@
+import { getToken } from "./utils";
+
 const baseUrl = 'http://localhost:9000'
+
 export const register = async(data) => {
 
   const response = await fetch(`${baseUrl}/users/register`, {
@@ -36,5 +39,25 @@ export const login = async (data) => {
     );
   }
 
+  return responseData;
+};
+
+export const getMe = async () => {
+  const token = getToken();
+  if (!token) {
+    throw new Error(`Missing User Token`);
+  }
+  const response = await fetch(`${baseUrl}/users/me`, {
+    method: "GET",
+    headers: new Headers({
+      Authorization: `Bearer ${token}`, //Token is required for protected Routes
+    }),
+  });
+  const responseData = await response.json();
+  if (!response.ok) {
+    throw new Error(
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
+  }
   return responseData;
 };
