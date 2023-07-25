@@ -17,6 +17,7 @@ import { Paper } from "@mui/material";
 
 function Login() {
   const [userData, setUserdata] = useState();
+  const [loginFailed, setLoginFailed] = useState();
 
   const navigate = useNavigate();
 
@@ -29,21 +30,18 @@ function Login() {
 
     try {
       const response = await login(userData);
-      //submit users token to jwt utility
-      console.log(response.token);
       setToken(response.token);
-      //redirect user to success page
       navigate("/home");
-
-      window.location.reload()
+      window.location.reload();
     } catch (error) {
       console.log(error);
+      setLoginFailed(true);
     }
   };
 
   return (
     <>
-      <Container component="main" maxWidth="xs" sx={{ padding: '5%' }}>
+      <Container component="main" maxWidth="xs" sx={{ padding: "5%" }}>
         <CssBaseline />
         <Box
           sx={{
@@ -66,29 +64,64 @@ function Login() {
             sx={{ mt: 3, mb: 3, width: "75%" }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  name="username"
-                  fullWidth
-                  id="username"
-                  label="Username"
-                  autoFocus
-                  onChange={(e) => handleChange(e)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                  onChange={(e) => handleChange(e)}
-                />
-              </Grid>
+              {loginFailed ? (
+                <>
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      error
+                      name="username"
+                      fullWidth
+                      id="username"
+                      label="Username"
+                      autoFocus
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      error
+                      fullWidth
+                      name="password"
+                      label="Password"
+                      type="password"
+                      id="password"
+                      autoComplete="new-password"
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography fontStyle={'italic'} fontSize="12px" color={'red'}>Invalid username/password combination</Typography>
+                  </Grid>
+                </>
+              ) : (
+                <>
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      name="username"
+                      fullWidth
+                      id="username"
+                      label="Username"
+                      autoFocus
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      required
+                      fullWidth
+                      name="password"
+                      label="Password"
+                      type="password"
+                      id="password"
+                      autoComplete="new-password"
+                      onChange={(e) => handleChange(e)}
+                    />
+                  </Grid>
+                </>
+              )}
             </Grid>
             <Button
               type="submit"
