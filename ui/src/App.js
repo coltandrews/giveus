@@ -4,6 +4,7 @@ import ThemeContextProvider from "./context/themeContext";
 import Layout from "./layouts/index";
 import Login from "./views/login";
 import Register from "./views/register";
+import Home from "./views/home";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
             <Route index element={<Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/settings" />
-            <Route path="/home" />
+            <Route path="/home" element={<Home/>}/>
             <Route path="/profile/me" />
             <Route path="/donation/new" />
             <Route path="/event/new" />

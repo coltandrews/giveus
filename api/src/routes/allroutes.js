@@ -10,6 +10,7 @@ const allRouters = new Router()
 
 // create base routes
 allRouters.use('/users', users)
+allRouters.use('/donations', donations)
 // allRouters.use('/events', events)
 // allRouters.use('/donations', donations)
 

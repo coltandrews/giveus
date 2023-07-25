@@ -8,7 +8,6 @@ export const setToken = (token) => {
 };
 export const getToken = () => {
   const token = localStorage.getItem(sessionTokenName);
-  console.log(token);
   return token;
 };
 

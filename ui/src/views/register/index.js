@@ -37,7 +37,6 @@ function Register() {
     try {
       const response = await register(userData);
       //submit users token to jwt utility
-      console.log(response.token);
       setToken(response.token);
       //redirect user to success page
       navigate('/home')
