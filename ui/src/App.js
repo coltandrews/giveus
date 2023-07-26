@@ -6,6 +6,7 @@ import Login from "./views/login";
 import Register from "./views/register";
 import Home from "./views/home";
 import NewDonation from "./views/new-donation";
+import NewEvent from "./views/new-event";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/profile/me" />
             <Route path="/donation/new" element={<NewDonation />} />
-            <Route path="/event/new" />
+            <Route path="/event/new" element={<NewEvent />}/>
             <Route path="/events/me" />
             <Route path="/donations/me" />
             <Route path="/register" element={<Register />} />

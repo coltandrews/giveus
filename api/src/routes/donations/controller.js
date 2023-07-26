@@ -26,7 +26,9 @@ exports.addDonation = async (req, res) => {
     const data = {
       "userId": req.body.userId,
       "itemName": req.body.itemName,
-      "itemImage": req.file.filename
+      "itemImage": req.file.filename,
+      "itemDescription": req.body.itemDescription,
+      "value": req.body.value
     }
     console.log(req.file)
     const response = await insertDonation(data)

@@ -10,16 +10,15 @@ import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import EventIcon from '@mui/icons-material/Event';
 import { Box, Grid, Paper, Typography } from "@mui/material";
 
 const NonprofitCard = (props) => {
   const { nonprofit } = props;
-  console.log(nonprofit)
-  const boatCruiseImg = require("../assets/images/donated_item_1.jpeg");
 
   const convertDate = (date) => {
     let dateString = new Date(date).toLocaleDateString();
-    return "Posted on " + dateString;
+    return "Joined " + dateString;
   };
 
   return (
@@ -34,20 +33,12 @@ const NonprofitCard = (props) => {
           }}
         >
           <CardHeader
-            avatar={
-              <Avatar sx={{ bgcolor: "#994636" }} aria-label="nonprofit">
-                {nonprofit.organizationName.split("")[0]}
-              </Avatar>
-            }
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
+            titleTypographyProps={{variant:'h6' }}
             title={nonprofit.organizationName}
             subheader={convertDate(nonprofit.createdAt)}
+            
           />
-          <CardMedia component="img" height="194" image={boatCruiseImg} />
+          <CardMedia component="img" height="194" image={`./images/${nonprofit.image}`} sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}/>
           <CardContent>
             <Typography variant="body2" color="text.secondary">
               {nonprofit.description}
@@ -55,7 +46,7 @@ const NonprofitCard = (props) => {
           </CardContent>
           <CardActions disableSpacing>
             <IconButton aria-label="add to favorites">
-              <FavoriteIcon />
+              <EventIcon />
             </IconButton>
             <IconButton aria-label="share">
               <ShareIcon />
