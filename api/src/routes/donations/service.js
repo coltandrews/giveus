@@ -9,3 +9,10 @@ exports.findAll = async () => {
   );
   return results;
 };
+
+exports.insertDonation = async (data) => {
+  const results = await knex("donations").insert(data)
+  return results;
+};
+
+

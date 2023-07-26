@@ -7,11 +7,11 @@ exports.up = function(knex) {
   return knex.schema.createTable('donations', function(table) {
     table.increments('id').primary();
     table.integer('userId').notNullable().references('id').inTable('users').onDelete('CASCADE');
-    table.integer('eventId').notNullable().references('id').inTable('events').onDelete('CASCADE');
+    table.integer('eventId').nullable().references('id').inTable('events').onDelete('CASCADE');
     table.string('itemName', 50).notNullable();
     table.decimal('value',14,2).nullable();
     table.string('itemDescription', 255).nullable();
-    table.string('image', 255).nullable();
+    table.string('itemImage', 255).nullable();
     table.timestamp('createdAt').defaultTo(knex.fn.now())
   })
 };
