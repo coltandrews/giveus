@@ -152,5 +152,19 @@
     "description": null,
     "image": null,
     "role": "donor"
+  },
+  {
+    "id": 22,
+    "username": "donor",
+    "organizationName": null,
+    "email": "donor@gmail.com",
+    "password": "$2b$10$tNknHci6MC2GCtNigAeNuus/pNz1WcwhgOYlrFpEEuBzKjrJ0mk3.",
+    "firstname": "Colt",
+    "lastname": "Andrews",
+    "address": "83266 Iowa Parkway",
+    "phoneNumber": "(280) 7474971",
+    "description": null,
+    "image": null,
+    "role": "donor"
   }
 ]

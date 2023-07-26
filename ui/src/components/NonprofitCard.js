@@ -4,14 +4,10 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 
-import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
-
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import EventIcon from '@mui/icons-material/Event';
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import EventIcon from "@mui/icons-material/Event";
+import { Grid, Typography, Link, Button } from "@mui/material";
 
 const NonprofitCard = (props) => {
   const { nonprofit } = props;
@@ -23,7 +19,7 @@ const NonprofitCard = (props) => {
 
   return (
     <>
-      <Grid item style={{ display: "flex" }} lg={3} md={3} sm={6} xs={12}>
+      <Grid item style={{ display: "flex" }} lg={4} md={6} sm={12} xs={12}>
         <Card
           style={{
             display: "flex",
@@ -33,23 +29,26 @@ const NonprofitCard = (props) => {
           }}
         >
           <CardHeader
-            titleTypographyProps={{variant:'h6' }}
+            titleTypographyProps={{ variant: "h6" }}
             title={nonprofit.organizationName}
             subheader={convertDate(nonprofit.createdAt)}
-            
           />
-          <CardMedia component="img" height="194" image={`./images/${nonprofit.image}`} sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}/>
+          <CardMedia
+            component="img"
+            height="194"
+            image={`./images/${nonprofit.image}`}
+            sx={{ padding: "1em 1em 0 1em", objectFit: "contain" }}
+          />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
               {nonprofit.description}
             </Typography>
           </CardContent>
-          <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites">
-              <EventIcon />
-            </IconButton>
+          <CardActions disableSpacing sx={{justifyContent: 'center', mb:2}}>
             <IconButton aria-label="share">
-              <ShareIcon />
+              <Link href={`/events/${nonprofit.id}`}>
+                <Button variant="contained">View Events</Button>
+              </Link>
             </IconButton>
           </CardActions>
         </Card>

@@ -2,10 +2,10 @@
   "id": 1,
   "userId": 11,
   "eventId": 1,
-  "itemName": "Sunet Boat Cruise",
+  "itemName": "Sunset Boat Cruise",
   "value": 376.02,
   "itemDescription": "A night on the Palmetto Breeze for 10 guests.",
-  "itemImage": null
+  "itemImage": "sunsetboat.jpg"
 }, {
   "id": 2,
   "userId": 12,
@@ -13,7 +13,7 @@
   "itemName": "Night on Folly",
   "value": 493.19,
   "itemDescription": "A night for 2 in a luxury Folly Beach rental",
-  "itemImage": null
+  "itemImage": "follynight.jpg"
 }, {
   "id": 3,
   "userId": 13,
@@ -21,7 +21,7 @@
   "itemName": "Workout Class Subscription",
   "value": 233.70,
   "itemDescription": "3 months of weekly workout classes.",
-  "itemImage": null
+  "itemImage": "workoutclass.jpg"
 }, {
   "id": 4,
   "userId": 14,
@@ -29,7 +29,7 @@
   "itemName": "Cutting Board",
   "value": 85.14,
   "itemDescription": "A custom made cutting board by local artist.",
-  "itemImage": null
+  "itemImage": "cuttingboard.jpg"
 }, {
   "id": 5,
   "userId": 15,
@@ -37,7 +37,7 @@
   "itemName": "$275 Giftcard to Halls Chophouse",
   "value": 275.64,
   "itemDescription": "A giftcard and more for a night at Halls Chophouse.",
-  "itemImage": null
+  "itemImage": "hallsgiftcard.jpg"
 }, {
   "id": 6,
   "userId": 16,
@@ -45,7 +45,7 @@
   "itemName": "Clay Shooting Lesson",
   "value": 139.84,
   "itemDescription": "An hour lesson on shooting skeet.",
-  "itemImage": null
+  "itemImage": "claylesson.jpg"
 }, {
   "id": 7,
   "userId": 17,
@@ -53,7 +53,7 @@
   "itemName": "Private Chef for 8 People",
   "value": 162.23,
   "itemDescription": "A private 3 course meal for you and 7 of your friends.",
-  "itemImage": null
+  "itemImage": "chefparty.jpg"
 }, {
   "id": 8,
   "userId": 18,
@@ -61,7 +61,7 @@
   "itemName": "Custom Leatherwork",
   "value": 84.88,
   "itemDescription": "Custom belt, wallet or purse of your choosing.",
-  "itemImage": null
+  "itemImage": "leather.jpg"
 }, {
   "id": 9,
   "userId": 19,
@@ -69,7 +69,7 @@
   "itemName": "Horseback Trail Ride",
   "value": 383.61,
   "itemDescription": "A 2 hour trailride through Francis Marion National Park",
-  "itemImage": null
+  "itemImage": "horseride.jpg"
 }, {
   "id": 10,
   "userId": 20,
@@ -77,5 +77,5 @@
   "itemName": "Night on Isle of Palms",
   "value": 384.30,
   "itemDescription": "A night for 2 in a luxurious Isle of Palms condo.",
-  "itemImage": null
+  "itemImage": "iop.jpg"
 }]
