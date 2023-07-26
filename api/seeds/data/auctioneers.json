@@ -11,7 +11,7 @@
     "address": "347 Mallard Lane",
     "phoneNumber": "(864) 1822333",
     "description": "Founded as an emergency relief effort in 1989 after the devastation from Hurricane Hugo, East Cooper Community Outreach has since grown into a permanent resource for the community in need with aid addressing basic needs, health services and empowerment.",
-    "image": "",
+    "image": "ecco.jpg",
     "role": "auctioneer"
   },
   {
@@ -26,7 +26,7 @@
     "address": "02 Autumn Leaf Road",
     "phoneNumber": "(420) 8121515",
     "description": "A community based organization in Downtown Charleston that acts as a liaison between citizens and city officials to build and sustain the community by providing economic and social services.",
-    "image": "",
+    "image": "ecdc.jpg",
     "role": "auctioneer"
   },
   {
@@ -41,7 +41,7 @@
     "address": "32770 Grasskamp Place",
     "phoneNumber": "(881) 1405554",
     "description": "The Charleston Friends of the Library is a non-profit, organization dedicated to promoting the library as an essential institution of our society. Volunteer members advocate, educate, and raise funds on behalf of the Library, its patrons, and the larger Charleston county community.",
-    "image": "",
+    "image": "library.jpg",
     "role": "auctioneer"
   },
   {
@@ -56,7 +56,7 @@
     "address": "562 Springs Avenue",
     "phoneNumber": "(440) 8743619",
     "description": "Darkness to Light raises awareness of the prevalence and consequences of child sexual abuse by educating adults about the steps they can take to prevent, recognize and react responsibly to the reality of child sexual abuse.",
-    "image": "",
+    "image": "D2L.jpg",
     "role": "auctioneer"
   },
   {
@@ -71,7 +71,7 @@
     "address": "7 Bellgrove Avenue",
     "phoneNumber": "(898) 8421666",
     "description": "Lowcountry Orphan Relief works directly with other non-profits, schools, foster parents, and government agencies to identify the individual needs of these and other children in severe situations. This nonprofit intervenes at critical junctures in the lives of these children, with products and services that provide a strong, positive impact.",
-    "image": "",
+    "image": "orphan.jpg",
     "role": "auctioneer"
   },
   {
@@ -86,7 +86,7 @@
     "address": "600 Sunfield Hill",
     "phoneNumber": "(824) 2104441",
     "description": "My Sister's House is a nonprofit organization that provides services, programs and resources to empower domestic violence victims and their children to live free from abuse. The organization operates an emergency temporary shelter at an undisclosed location for women and children who flee abusive situations in Charleston, Berkeley and Dorchester counties in South Carolina.",
-    "image": "",
+    "image": "sistershouse.jpg",
     "role": "auctioneer"
   },
   {
@@ -101,7 +101,7 @@
     "address": "4 Ronald Regan Road",
     "phoneNumber": "(937) 6580225",
     "description": "Located in Awendaw, Rein and Shine uses horses to heal children and adults with physical, mental, and emotional limitations.",
-    "image": "",
+    "image": "rein.jpg",
     "role": "auctioneer"
   },
   {
@@ -116,7 +116,7 @@
     "address": "1672 Old Shore Place",
     "phoneNumber": "(734) 2660844",
     "description": "Fields to Families works to ease hunger in the Lowcountry by gathering nutritious crops from generous farmers and community gardeners, distributing the harvest to agencies such as Meals on Wheels, local food pantries, soup kitchens, shelters and churches.",
-    "image": "",
+    "image": "fields.jpg",
     "role": "auctioneer"
   },
   {
@@ -131,7 +131,7 @@
     "address": "9421 Barby Junction",
     "phoneNumber": "(246) 9205878",
     "description": "The Lowcountry Food Bank serves the 10 coastal counties of South Carolina and aims to distribute more than 24 million pounds of food each year. The Lowcountry Food Bank is a clearinghouse for donated food products that are distributed to a network of nearly 300 member feeding agencies including soup kitchens, homeless shelters and emergency food pantries.",
-    "image": "",
+    "image": "LCFB.jpg",
     "role": "auctioneer"
   },
   {
@@ -146,7 +146,7 @@
     "address": "41 Huxley Plaza",
     "phoneNumber": "(524) 6889229",
     "description": "The Formation Project is a nonprofit organization providing direct services to survivors of human trafficking.",
-    "image": "",
+    "image": "formation.jpg",
     "role": "auctioneer"
   }
 ]
