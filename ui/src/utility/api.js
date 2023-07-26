@@ -100,3 +100,24 @@ export const getAllNonprofits = async () => {
   }
   return responseData;
 };
+
+export const postDonation = async (data) => {
+  const response = await fetch(`${baseUrl}/donations/new`, {
+    method: "POST",
+    //headers: { "Content-Type": `multipart/form-data` },
+    body: data
+  });
+
+  const responseData = await response.json();
+  
+  console.log(responseData)
+  if (!response.ok) {
+    throw new Error(
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
+  }
+  
+  return responseData;
+};
+
+

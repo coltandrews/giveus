@@ -5,6 +5,7 @@ import Layout from "./layouts/index";
 import Login from "./views/login";
 import Register from "./views/register";
 import Home from "./views/home";
+import NewDonation from "./views/new-donation";
 
 function App() {
   return (
@@ -15,9 +16,9 @@ function App() {
             <Route index element={<Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/settings" />
-            <Route path="/home" element={<Home/>}/>
+            <Route path="/home" element={<Home />} />
             <Route path="/profile/me" />
-            <Route path="/donation/new" />
+            <Route path="/donation/new" element={<NewDonation />} />
             <Route path="/event/new" />
             <Route path="/events/me" />
             <Route path="/donations/me" />

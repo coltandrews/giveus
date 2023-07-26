@@ -14,9 +14,7 @@ import { Box, Grid, Paper, Typography } from "@mui/material";
 
 const DonationCard = (props) => {
   const { donation } = props;
-
-  const boatCruiseImg = require("../assets/images/donated_item_1.jpeg");
-
+  
   const convertDate = (date) => {
     let dateString = new Date(date).toLocaleDateString();
     return "Posted on " + dateString;
@@ -48,7 +46,7 @@ const DonationCard = (props) => {
             title={donation.itemName}
             subheader={convertDate(donation.createdAt)}
           />
-          <CardMedia component="img" height="194" image={boatCruiseImg} />
+          <CardMedia component="img" height="194" image={`./images/${donation.itemImage}`} />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
               {donation.itemDescription}

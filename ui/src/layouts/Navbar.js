@@ -189,7 +189,7 @@ function Navbar() {
                 textDecoration: "none",
               }}
             >
-              <Link href="/" style={{ textDecoration: "none", color: "white" }}>
+              <Link href="/home" style={{ textDecoration: "none", color: "white" }}>
                 GiveUs
               </Link>
             </Typography>
