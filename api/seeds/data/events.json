@@ -1,71 +1,88 @@
 [{
   "id": 1,
   "userId": 1,
-  "eventName": "East Cooper Gala",
+  "eventName": "The Speakeasy for a Cause",
   "eventDate": "7/18/2023",
-  "eventDescription": null,
-  "eventImage": null
+  "eventDescription": "Join us for an evening of 1920's Prohibition-era fun. Heavy hors d'oeuvres, open bar, dancing to live jazz and swing with the Charleston Swing Dance Association, games, a silent auction and raffle for a Grand Prize of $5,000 CASH (you must be present to win). Period attire is encouraged so don your 'glad rags'!",
+  "eventImage": "speakeasy.jpg"
 }, {
   "id": 2,
   "userId": 2,
-  "eventName": "Eastside Community Fundraiser",
+  "eventName": "A Night Under the Moon",
   "eventDate": "9/30/2023",
-  "eventDescription": null,
-  "eventImage": null
+  "eventDescription": "This year's gala will be held at Charleston's world-class Gaillard Center. Our goal is to raise the needed $650,000 to continue advancing our lifesaving work. This herculean task is only possible with the continued support of our charitable community. We invite you to participate in our flagship event as an attendee, business sponsor, or auction donor.",
+  "eventImage": "moongala.jpg"
 }, {
   "id": 3,
   "userId": 3,
   "eventName": "Books for Children Auction",
   "eventDate": "5/20/2023",
-  "eventDescription": null,
-  "eventImage": null
+  "eventDescription": "Dress to impress in your best formal wear for an elegant evening consisting of a cocktail hour, three-course dinner, silent auction, live music performance, and more; all in support of the homebound in Greenville County. *Attendees must be 21+.",
+  "eventImage": "booksevent.jpg"
 }, {
   "id": 4,
   "userId": 4,
-  "eventName": "Darkness to Light Annual Gala",
+  "eventName": "Circle of Light Gala",
   "eventDate": "8/4/2023",
-  "eventDescription": null,
-  "eventImage": null
+  "eventDescription": "A world-class charity event featuring an evening of fine dining, spectacular entertainment, an edge-of-your seat auction and a lively after-party. It is the biggest gala in the nation focused on protecting children from sexual abuse and raises up to $500,000 annually to further those efforts! Over 600 Charleston-area and national business leaders attend the gala, which is sponsored by leading local businesses.",
+  "eventImage": "lightgala.jpg"
 }, {
   "id": 5,
   "userId": 5,
   "eventName": "Lowcountry Orphan Relief Charity Event",
   "eventDate": "10/29/2023",
-  "eventDescription": null,
-  "eventImage": null
+  "eventDescription": "Fulfilling Needs. Creating Hope. Join fellow club members at Snee Farm CC as we enjoy an evening of dining & dancing to support Lowcountry Orphan Relief! Tickets $30 each. VIP Tables $400",
+  "eventImage": "golfevent.jpg"
 }, {
   "id": 6,
   "userId": 6,
   "eventName": "My Sister's House Annual Gala",
+  "eventDescription": "Spend a luxurious evening celebrating Women Who Shine with passed hors d'oeuvres, bubbles and a pianist, violinist and harpist entertaining you throughout the night. Come listen to keynote speakers, powerful business women and honor the women who made an impact in the community. Among the guest speakers will be Beverly Hills City Councilmembers, Lili Bosse and Sharona Nazarian. This is an exclusive evening uplifting all women to shine!",
   "eventDate": "8/17/2023",
-  "eventDescription": null,
-  "eventImage": null
+  "eventImage": "womangala.jpg"
 }, {
   "id": 7,
   "userId": 7,
   "eventName": "Rein & Shine Ride for Charity",
   "eventDate": "4/11/2024",
-  "eventDescription": null,
-  "eventImage": null
+  "eventDescription": "Join us for heavy hors-d'oeuvres and libations as we celebrate the successes of 2022 and take a look at what's to come in 2023.",
+  "eventImage": "reinevent.jpg"
 }, {
   "id": 8,
   "userId": 8,
   "eventName": "Fields to Families Annual Gala",
   "eventDate": "4/26/2024",
-  "eventDescription": null,
-  "eventImage": null
+  "eventDescription": "Join us for heavy hors-d'oeuvres and libations as we celebrate the successes of 2022 and take a look at what's to come in 2023.",
+  "eventImage": "fieldsevent.jpg"
 }, {
   "id": 9,
   "userId": 9,
   "eventName": "Lowcountry Food Bank Annual Fundraiser",
   "eventDate": "6/14/2024",
-  "eventDescription": null,
-  "eventImage": null
+  "eventDescription": "Join us for heavy hors-d'oeuvres and libations as we celebrate the successes of 2022 and take a look at what's to come in 2023.",
+  "eventImage": "foodevent.jpg"
 }, {
   "id": 10,
   "userId": 10,
-  "eventName": "The Formation Project Gala",
+  "eventName": "Cocktails for a Cause",
   "eventDate": "1/18/2024",
-  "eventDescription": null,
-  "eventImage": null
+  "eventDescription": "Join The Formation Project for heavy hors-d'oeuvres and libations as we celebrate the successes of 2022 and take a look at what's to come in 2023.",
+  "eventImage": "cocktail.jpg"
+},
+{
+  "id": 11,
+  "userId": 1,
+  "eventName": "Cocktails for a Cause",
+  "eventDate": "1/18/2024",
+  "eventDescription": "Join us for heavy hors-d'oeuvres and libations as we celebrate the successes of 2022 and take a look at what's to come in 2023.",
+  "eventImage": "cocktail.jpg"
+}
+,
+{
+  "id": 12,
+  "userId": 2,
+  "eventName": "Cocktails for a Cause",
+  "eventDate": "1/18/2024",
+  "eventDescription": "Join us for heavy hors-d'oeuvres and libations as we celebrate the successes of 2022 and take a look at what's to come in 2023.",
+  "eventImage": "cocktail.jpg"
 }]

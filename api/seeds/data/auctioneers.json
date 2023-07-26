@@ -148,5 +148,20 @@
     "description": "The Formation Project is a nonprofit organization providing direct services to survivors of human trafficking.",
     "image": "formation.jpg",
     "role": "auctioneer"
+  },
+  {
+    "id": 23,
+    "username": "auctioneer",
+    "organizationName": "Colt's Nonprofit",
+    "ein": "84-469512",
+    "email": "auctioneerj@gmail.net",
+    "password": "$2b$10$tNknHci6MC2GCtNigAeNuus/pNz1WcwhgOYlrFpEEuBzKjrJ0mk3.",
+    "firstname": "Colt",
+    "lastname": "Andrews",
+    "address": "41 Huxley Plaza",
+    "phoneNumber": "(524) 8439259115",
+    "description": "Colt's nonprofit is a place where Colt does not profit",
+    "image": "coltslogo.jpg",
+    "role": "auctioneer"
   }
 ]

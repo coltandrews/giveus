@@ -10,11 +10,11 @@ import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import { Link, Grid, Button, Typography } from "@mui/material";
 
 const DonationCard = (props) => {
   const { donation } = props;
-  
+
   const convertDate = (date) => {
     let dateString = new Date(date).toLocaleDateString();
     return "Posted on " + dateString;
@@ -22,7 +22,7 @@ const DonationCard = (props) => {
 
   return (
     <>
-      <Grid item style={{ display: "flex" }} lg={3} md={3} sm={6} xs={12}>
+      <Grid item style={{ display: "flex" }} lg={4} md={6} sm={12} xs={12}>
         <Card
           style={{
             display: "flex",
@@ -38,26 +38,25 @@ const DonationCard = (props) => {
                 {donation.lastname.split("")[0]}
               </Avatar>
             }
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
+            titleTypographyProps={{ variant: "h6" }}
             title={donation.itemName}
             subheader={convertDate(donation.createdAt)}
           />
-          <CardMedia component="img" height="194" image={`./images/${donation.itemImage}`} />
+          <CardMedia
+            component="img"
+            height="194"
+            image={`./images/${donation.itemImage}`}
+          />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
               {donation.itemDescription}
             </Typography>
           </CardContent>
-          <CardActions disableSpacing>
+          <CardActions disableSpacing sx={{justifyContent: 'center', mb:2}}>
             <IconButton aria-label="add to favorites">
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton aria-label="share">
-              <ShareIcon />
+              <Link href={``}>
+                <Button variant="contained">Request Donation</Button>
+              </Link>
             </IconButton>
           </CardActions>
         </Card>

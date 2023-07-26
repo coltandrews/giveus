@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMe, getAllDonations, getAllNonprofits } from "../../utility/api";
 import { getToken } from "../../utility/utils";
-import { Box, Grid, Stack, Button } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import * as React from "react";
 import DonationCard from "../../components/DonationCard";
 import NonprofitCard from "../../components/NonprofitCard";
@@ -55,16 +55,27 @@ function Home() {
           minHeight="100vh"
           marginBottom="50px"
         >
-
           <Grid
-            container
+            containe
             spacing={3}
-            direction="row"
-            sx={{ width: "80%", mt: "2%" }}
+            direction="column"
+            sx={{ width: "80%", mt: 3 }}
+            r
           >
-            {donations.map((donation) => {
-              return <DonationCard donation={donation}></DonationCard>;
-            })}
+            <Grid item>
+              <Typography variant="h4"><i>Find a Dononation</i></Typography>
+            </Grid>
+
+            <Grid
+              container
+              spacing={3}
+              direction="row"
+              sx={{ mt: "2%" }}
+            >
+              {donations.map((donation) => {
+                return <DonationCard donation={donation}></DonationCard>;
+              })}
+            </Grid>
           </Grid>
         </Box>
       </>
@@ -82,14 +93,25 @@ function Home() {
           marginBottom="50px"
         >
           <Grid
-            container
+            containe
             spacing={3}
-            direction="row"
-            sx={{ width: "80%", mt: "2%" }}
+            direction="column"
+            sx={{ width: "80%", mt: 3 }}
+            r
           >
-            {nonprofits.map((nonprofit) => {
-              return <NonprofitCard nonprofit={nonprofit}></NonprofitCard>;
-            })}
+            <Grid item>
+              <Typography variant="h5"><i>Find a Nonprofit</i></Typography>
+            </Grid>
+            <Grid
+              container
+              spacing={3}
+              direction="row"
+              sx={{ mt: "2%" }}
+            >
+              {nonprofits.map((nonprofit) => {
+                return <NonprofitCard nonprofit={nonprofit}></NonprofitCard>;
+              })}
+            </Grid>
           </Grid>
         </Box>
       </>

@@ -100,6 +100,25 @@ export const getAllNonprofits = async () => {
   }
   return responseData;
 };
+export const getEventsByUserId = async (id) => {
+  const token = getToken();
+  if (!token) {
+    throw new Error(`Missing User Token`);
+  }
+  const response = await fetch(`${baseUrl}/events/${id}`, {
+    method: "GET",
+    headers: new Headers({
+      Authorization: `Bearer ${token}`, //Token is required for protected Routes
+    }),
+  });
+  const responseData = await response.json();
+  if (!response.ok) {
+    throw new Error(
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
+  }
+  return responseData;
+};
 
 export const postDonation = async (data) => {
   const response = await fetch(`${baseUrl}/donations/new`, {
