@@ -14,11 +14,7 @@ import { Box, Grid, Paper, Typography } from "@mui/material";
 
 const DonationCard = (props) => {
   const { donation } = props;
-  console.log(donation)
-
-  const boatCruiseImg = require("../assets/images/donated_item_1.jpeg");
-
-
+  
   const convertDate = (date) => {
     let dateString = new Date(date).toLocaleDateString();
     return "Posted on " + dateString;
