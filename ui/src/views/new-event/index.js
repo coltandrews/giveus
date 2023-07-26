@@ -56,9 +56,9 @@ const NewEvent = (props) => {
     event.preventDefault();
     const formData = new FormData();
     const me = await getMe();
-    formData.append("image", image);
-    formData.append("itemName", newEvent.itemName);
-    formData.append("itemDescription", newEvent.description);
+    formData.append("eventImage", image);
+    formData.append("eventName", newEvent.eventName);
+    formData.append("eventDescription", newEvent.eventDescription);
     formData.append("eventDate", eventDate);
     formData.append("userId", me.id);
     const response = await postEvent(formData);
@@ -107,17 +107,17 @@ const NewEvent = (props) => {
               <Grid item xs={12} sx={{ mb: 1 }}>
                 <TextField
                   fullWidth
-                  name="itemName"
+                  name="eventName"
                   label="Event Name"
                   type="text"
-                  id="itemName"
+                  id="eventName"
                   onChange={(e) => handleChange(e)}
                 />
               </Grid>
               <Grid item xs={12} sx={{ mb: 3 }}>
                 <TextField
                   fullWidth
-                  name="description"
+                  name="eventDescription"
                   label="Event Description"
                   type="text"
                   id="eventDescription"

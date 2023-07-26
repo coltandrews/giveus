@@ -305,7 +305,7 @@ function Navbar() {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link href="/events/me">
+                    <Link href={`/my/events/${me.id}`}>
                       <Typography textAlign="center">
                         <CalendarViewMonthIcon
                           sx={{ color: "white" }}
