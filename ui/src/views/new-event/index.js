@@ -43,7 +43,7 @@ const NewEvent = (props) => {
   };
 
   const handleDateChange = (date) => {
-    const dateString = `${date.$y}/${date.$M}/${date.$D}`
+    const dateString = `${date.$y}/${date.$M}/${date.$D}`;
     setEventDate(dateString);
   };
   const handleChange = (e) => {
@@ -106,6 +106,7 @@ const NewEvent = (props) => {
             <Grid container spacing={2}>
               <Grid item xs={12} sx={{ mb: 1 }}>
                 <TextField
+                  required
                   fullWidth
                   name="eventName"
                   label="Event Name"
@@ -116,6 +117,7 @@ const NewEvent = (props) => {
               </Grid>
               <Grid item xs={12} sx={{ mb: 3 }}>
                 <TextField
+                  required
                   fullWidth
                   name="eventDescription"
                   label="Event Description"
@@ -129,6 +131,7 @@ const NewEvent = (props) => {
                   <Button variant="contained" component="label">
                     <AddAPhotoIcon />
                     <input
+                      required
                       hidden
                       accept="image/*"
                       name="image"
@@ -141,7 +144,7 @@ const NewEvent = (props) => {
                 <Grid item xs={6}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
-                      onChange={(e)=>handleDateChange(e)}
+                      onChange={(e) => handleDateChange(e)}
                       id="eventDate"
                       key="eventDate"
                       label="Event Date"

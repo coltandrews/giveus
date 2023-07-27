@@ -26,11 +26,12 @@ function MyEvents(props) {
     {
       field: "eventDate",
       headerName: "Date",
-      width: 180,
+      width: 130,
       editable: true,
       valueFormatter: params => new Date(params?.value).toLocaleDateString()
-    },
+    }
   ];
+
   
   const rows = events;
   console.log(rows);

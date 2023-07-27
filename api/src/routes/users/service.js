@@ -38,7 +38,6 @@ exports.findByUsername = async (username) => {
 };
 
 exports.findById = async (id) => {
-  console.log(id)
   const user = await knex("users").where("id", id).first("*");
   return user;
 };
