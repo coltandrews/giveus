@@ -30,7 +30,6 @@ exports.addDonation = async (req, res) => {
       "itemDescription": req.body.itemDescription,
       "value": req.body.value
     }
-    console.log(req.file)
     const response = await insertDonation(data)
 
     // remove spaces (there may be some other characters that are invalid for url filenames...)

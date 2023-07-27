@@ -27,7 +27,6 @@ exports.showAllNonprofits = async (req, res) => {
   try {
 
     const allUsers = await findAllNonprofits();
-    console.log(allUsers)
     return res.json(allUsers);
 
   } catch (error) {
@@ -40,7 +39,6 @@ exports.register = async (req, res) => {
   try {
     const userData = req.body;
     const user = await createUser(userData);
-    console.log(user)
     // Create a JWT and send it back to the client
     const token = jwt.sign({ id: user[0].id }, process.env.SECRET_KEY);
     return res.json({ token });
@@ -89,7 +87,6 @@ exports.showMe = async (req, res) => {
     if (!req.user) {
       return res.status(401).json({ error: "Invalid token provided" });
     }
-    console.log('!!!!!!!!!!', req.user)
     const user = { ...req.user };
 
     if (!user) {
@@ -111,7 +108,6 @@ exports.showById = async (req, res) => {
     if (!req.user) {
       return res.status(401).json({ error: "Invalid token provided" });
     }
-    console.log("auth req.user: ", req.user);
     //get the authenticated user using the userId provided from authentication
     const user = await findById(req.user.id);
     // Only allow admins and account owners to access the user data
@@ -122,7 +118,6 @@ exports.showById = async (req, res) => {
     }
 
     const foundUser = await findById(req.params.id);
-    console.log(foundUser);
     if (!foundUser) {
       return res.status(404).json("No User Found");
     }

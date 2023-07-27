@@ -43,7 +43,7 @@ const NewEvent = (props) => {
   };
 
   const handleDateChange = (date) => {
-    const dateString = `${date.$y}/${date.$M}/${date.$D}`
+    const dateString = `${date.$y}/${date.$M}/${date.$D}`;
     setEventDate(dateString);
   };
   const handleChange = (e) => {
@@ -56,9 +56,9 @@ const NewEvent = (props) => {
     event.preventDefault();
     const formData = new FormData();
     const me = await getMe();
-    formData.append("image", image);
-    formData.append("itemName", newEvent.itemName);
-    formData.append("itemDescription", newEvent.description);
+    formData.append("eventImage", image);
+    formData.append("eventName", newEvent.eventName);
+    formData.append("eventDescription", newEvent.eventDescription);
     formData.append("eventDate", eventDate);
     formData.append("userId", me.id);
     const response = await postEvent(formData);
@@ -106,18 +106,20 @@ const NewEvent = (props) => {
             <Grid container spacing={2}>
               <Grid item xs={12} sx={{ mb: 1 }}>
                 <TextField
+                  required
                   fullWidth
-                  name="itemName"
+                  name="eventName"
                   label="Event Name"
                   type="text"
-                  id="itemName"
+                  id="eventName"
                   onChange={(e) => handleChange(e)}
                 />
               </Grid>
               <Grid item xs={12} sx={{ mb: 3 }}>
                 <TextField
+                  required
                   fullWidth
-                  name="description"
+                  name="eventDescription"
                   label="Event Description"
                   type="text"
                   id="eventDescription"
@@ -129,6 +131,7 @@ const NewEvent = (props) => {
                   <Button variant="contained" component="label">
                     <AddAPhotoIcon />
                     <input
+                      required
                       hidden
                       accept="image/*"
                       name="image"
@@ -141,7 +144,7 @@ const NewEvent = (props) => {
                 <Grid item xs={6}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
-                      onChange={(e)=>handleDateChange(e)}
+                      onChange={(e) => handleDateChange(e)}
                       id="eventDate"
                       key="eventDate"
                       label="Event Date"

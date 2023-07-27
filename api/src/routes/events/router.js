@@ -19,7 +19,7 @@ const upload = multer({
     })
 
 
-const {showAll, addEvent, showEventsByNonprofitId} = require('./controller')
+const {showAll, addEvent, showEventsByNonprofitId, destroyEvent, updateEvent, showMyEvents} = require('./controller')
 
 // create a new Router instance
 const router = new Router()
@@ -28,7 +28,10 @@ const router = new Router()
 
 router.get('/', showAll)
 router.get('/:id', showEventsByNonprofitId)
-router.post('/new', upload.single("image"), addEvent)
+router.get('/my/:id', showMyEvents)
+router.post('/new', upload.single("eventImage"), addEvent)
+router.delete('/my/del/:id', destroyEvent)
+router.put('/my/update/:id', updateEvent)
 
 // exporting router
 module.exports = router

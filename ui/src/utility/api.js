@@ -80,7 +80,6 @@ export const getAllDonations = async () => {
   }
   return responseData;
 };
-
 export const getAllNonprofits = async () => {
   const token = getToken();
   if (!token) {
@@ -119,7 +118,25 @@ export const getEventsByUserId = async (id) => {
   }
   return responseData;
 };
-
+export const getMyEvents = async (id) => {
+  const token = getToken();
+  if (!token) {
+    throw new Error(`Missing User Token`);
+  }
+  const response = await fetch(`${baseUrl}/events/my/${id}`, {
+    method: "GET",
+    headers: new Headers({
+      Authorization: `Bearer ${token}`, //Token is required for protected Routes
+    }),
+  });
+  const responseData = await response.json();
+  if (!response.ok) {
+    throw new Error(
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
+  }
+  return responseData;
+};
 export const postDonation = async (data) => {
   const response = await fetch(`${baseUrl}/donations/new`, {
     method: "POST",
@@ -143,6 +160,40 @@ export const postEvent = async (data) => {
     method: "POST",
     //headers: { "Content-Type": `multipart/form-data` },
     body: data
+  });
+
+  const responseData = await response.json();
+  
+  console.log(responseData)
+  if (!response.ok) {
+    throw new Error(
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
+  }
+  
+  return responseData;
+};
+export const deleteMyEvent = async (id) => {
+  const response = await fetch(`${baseUrl}/events/my/del/${id}`, {
+    method: "DELETE",
+    //headers: { "Content-Type": `multipart/form-data` },
+  });
+
+  const responseData = await response.json();
+  
+  console.log(responseData)
+  if (!response.ok) {
+    throw new Error(
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
+  }
+  
+  return responseData;
+};
+export const updateEvent = async (data) => {
+  const response = await fetch(`${baseUrl}/events/my/update/`, {
+    method: "PUT",
+    body: JSON.stringify(data)
   });
 
   const responseData = await response.json();

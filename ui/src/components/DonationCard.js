@@ -7,9 +7,6 @@ import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Link, Grid, Button, Typography } from "@mui/material";
 
 const DonationCard = (props) => {
@@ -50,6 +47,9 @@ const DonationCard = (props) => {
           <CardContent>
             <Typography variant="body2" color="text.secondary">
               {donation.itemDescription}
+            </Typography>
+            <Typography variant="h6" color="text.secondary">
+              Valued at: ${donation.value}
             </Typography>
           </CardContent>
           <CardActions disableSpacing sx={{justifyContent: 'center', mb:2}}>
