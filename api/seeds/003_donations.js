@@ -7,5 +7,5 @@ exports.seed = async function(knex) {
   // Deletes ALL existing entries
   await knex('donations').del()
   await knex('donations').insert(donations);
-  await knex.raw(`ALTER SEQUENCE users_id_seq RESTART WITH ${donations.length + 1}`)
+  await knex.raw(`ALTER SEQUENCE donations_id_seq RESTART WITH 11`)
 };
