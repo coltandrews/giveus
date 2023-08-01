@@ -27,6 +27,7 @@ function Home() {
       if (getToken()) {
         const donationData = await getAllDonations();
         setDonations(donationData);
+        console.log(donationData)
       }
     };
     const getNonprofitData = async () => {
@@ -73,7 +74,7 @@ function Home() {
               sx={{ mt: "2%" }}
             >
               {donations.map((donation) => {
-                return <DonationCard donation={donation}></DonationCard>;
+                return <DonationCard donation={donation} me={me}></DonationCard>;
               })}
             </Grid>
           </Grid>

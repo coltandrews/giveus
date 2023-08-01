@@ -50,6 +50,8 @@ const NewDonation = (props) => {
     const me = await getMe();
     formData.append("image", image);
     formData.append("itemName", newDonation.itemName);
+    formData.append("itemDescription", newDonation.itemDescription);
+    formData.append("value", newDonation.value);
     formData.append("userId", me.id);
     const response = await postDonation(formData);
   };
@@ -107,10 +109,10 @@ const NewDonation = (props) => {
               <Grid item xs={12} sx={{ mb: 3 }}>
                 <TextField
                   fullWidth
-                  name="itemName"
+                  name="itemDescription"
                   label="Describe your donation"
                   type="text"
-                  id="itemName"
+                  id="itemDescription"
                   onChange={(e) => handleChange(e)}
                 />
               </Grid>
@@ -134,7 +136,9 @@ const NewDonation = (props) => {
                       Value
                     </InputLabel>
                     <OutlinedInput
-                      id="outlined-adornment-amount"
+                      name="value"
+                      id="value"
+                      onChange={(e)=>handleChange(e)}
                       startAdornment={
                         <InputAdornment position="start">$</InputAdornment>
                       }

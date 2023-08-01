@@ -4,6 +4,7 @@ const { Router } = require('express')
 const users = require('./users/router')
 const events = require('./events/router')
 const donations = require('./donations/router')
+const pendingDonations = require('./pendingDonations/router')
 
 // create a new Router instance
 const allRouters = new Router()
@@ -11,6 +12,7 @@ const allRouters = new Router()
 // create base routes
 allRouters.use('/users', users)
 allRouters.use('/donations', donations)
+allRouters.use('/pending', pendingDonations)
 allRouters.use('/events', events)
 // allRouters.use('/events', events)
 // allRouters.use('/donations', donations)
