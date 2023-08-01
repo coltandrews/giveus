@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const jwt = require("jsonwebtoken");
 
-const { findAll, insertDonation, requestDonation } = require("./service");
+const { findAll, findAllById, requestDonation } = require("./service");
 
 exports.showAll = async (req, res) => {
   try {
@@ -14,6 +14,15 @@ exports.showAll = async (req, res) => {
   }
 };
 
+exports.showAllById = async (req, res) => {
+  try {
+    const getAllDonations = await findAllById(req.params.id);
+    return res.json(getAllDonations);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json();
+  }
+};
 exports.requestDonationForEvent = async (req, res) => {
   try {
     const response = await requestDonation(req.body);

@@ -7,10 +7,11 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
-import { useEffect, useState } from "react";
-
+import Snackbar from "@mui/material/Snackbar";
+import { useEffect, useState, Fragment } from "react";
 import { Link, Grid, Button, Typography } from "@mui/material";
 import { getMyEvents, requestDonationForEvent } from "../utility/api";
+import CloseIcon from "@mui/icons-material/Close";
 
 const DonationCard = (props) => {
   const style = {
@@ -28,6 +29,7 @@ const DonationCard = (props) => {
   };
   const { donation, me } = props;
   const [open, setOpen] = useState(false);
+  const [snackOpen, setSnackOpen] = useState(false);
   const [myEvents, setMyEvents] = useState();
 
   useEffect(() => {
@@ -49,19 +51,38 @@ const DonationCard = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
+  const handleSnackClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setSnackOpen(false);
+  };
 
   const handleDonationRequest = async (e, eventId) => {
-    setOpen(false)
+    setOpen(false);
+    setSnackOpen(true);
     const data = {
       pendingEventId: eventId,
       donorId: donation.userId,
       auctioneerId: me.id,
       donationId: donation.donationId,
-      itemName: donation.itemName
+      itemName: donation.itemName,
     };
     console.log(data);
     const response = await requestDonationForEvent(data);
   };
+  const action = (
+    <Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleSnackClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </Fragment>
+  );
   if (!myEvents) {
     return <></>;
   }
@@ -131,6 +152,13 @@ const DonationCard = (props) => {
               })}
             </Box>
           </Modal>
+          <Snackbar
+            open={snackOpen}
+            autoHideDuration={6000}
+            onClose={handleSnackClose}
+            message="Donation Requested!"
+            action={action}
+          />
         </Card>
       </Grid>
     </>

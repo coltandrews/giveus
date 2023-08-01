@@ -31,7 +31,6 @@ function MyEvents(props) {
       valueFormatter: params => new Date(params?.value).toLocaleDateString()
     }
   ];
-
   
   const rows = events;
   console.log(rows);

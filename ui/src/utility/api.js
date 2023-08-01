@@ -247,6 +247,26 @@ export const getMyDonations = async (id) => {
   }
   return responseData;
 };
+
+export const getRequestsByDonationId = async (id) => {
+  const token = getToken();
+  if (!token) {
+    throw new Error(`Missing User Token`);
+  }
+  const response = await fetch(`${baseUrl}/pending/${id}`, {
+    method: "GET",
+    headers: new Headers({
+      Authorization: `Bearer ${token}`, //Token is required for protected Routes
+    }),
+  });
+  const responseData = await response.json();
+  if (!response.ok) {
+    throw new Error(
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
+  }
+  return responseData;
+};
 export const deleteMyDonation = async (id) => {
   const response = await fetch(`${baseUrl}/donations/my/del/${id}`, {
     method: "DELETE",
@@ -266,6 +286,26 @@ export const deleteMyDonation = async (id) => {
 };
 export const updateDonation = async (data) => {
   const response = await fetch(`${baseUrl}/donations/my/update/`, {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: new Headers({
+      "Content-Type": "application/json",
+    }),
+  });
+
+  const responseData = await response.json();
+  
+  console.log(responseData)
+  if (!response.ok) {
+    throw new Error(
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
+  }
+  
+  return responseData;
+};
+export const acceptDonationRequest = async (id, data) => {
+  const response = await fetch(`${baseUrl}/donations/accept/${id}`, {
     method: "PUT",
     body: JSON.stringify(data),
     headers: new Headers({

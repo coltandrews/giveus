@@ -3,7 +3,7 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-  return knex.schema.createTable('pendingDonations', function(table) {
+  return knex.schema.createTable('pendingdonations', function(table) {
     table.increments('id').primary();
     table.integer('donorId').notNullable().references('id').inTable('users').onDelete('CASCADE');
     table.integer('auctioneerId').notNullable().references('id').inTable('users').onDelete('CASCADE');

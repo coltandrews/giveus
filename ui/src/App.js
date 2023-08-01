@@ -10,6 +10,7 @@ import NewEvent from "./views/new-event";
 import NonprofitEvents from "./views/nonprofit-events";
 import MyEvents from "./views/my-events";
 import MyDonations from "./views/my-donations";
+import MyEvent from "./views/event";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/event/new" element={<NewEvent />}/>
             <Route path="/my/events/:id" element={<MyEvents />}/>
             <Route path="/events/:id" element={<NonprofitEvents />}/>
+            <Route path="/event/:id" element={<MyEvent />}/>
             <Route path="/my/donations/:id" element={<MyDonations />}/>
             <Route path="/register" element={<Register />} />
           </Route>
