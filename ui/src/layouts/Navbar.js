@@ -232,7 +232,7 @@ function Navbar() {
                       </Link>
                     </MenuItem>
                     <MenuItem onClick={handleCloseNavMenu}>
-                      <Link href="/events/me">
+                      <Link href={`/my/events/${me.id}`}>
                         <Typography textAlign="center">
                           <CalendarViewMonthIcon fontSize="large" />
                         </Typography>
@@ -249,7 +249,7 @@ function Navbar() {
                       </Link>
                     </MenuItem>
                     <MenuItem onClick={handleCloseNavMenu}>
-                      <Link href="/donations/me">
+                      <Link href={`/my/donations/${me.id}`}>
                         <Typography textAlign="center">
                           <CalendarViewMonthIcon fontSize="large" />
                         </Typography>
@@ -328,7 +328,7 @@ function Navbar() {
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link href="/donations/me">
+                    <Link href={`/my/donations/${me.id}`}>
                       <Typography textAlign="center">
                         <CalendarViewMonthIcon
                           sx={{ color: "white" }}

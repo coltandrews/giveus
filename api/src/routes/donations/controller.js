@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const jwt = require("jsonwebtoken");
 
-const { findAll, insertDonation } = require("./service");
+const { findAll, insertDonation, findMyDonations, deleteDonation, acceptDonationRequest } = require("./service");
 
 exports.showAll = async (req, res) => {
   try {
@@ -13,7 +13,6 @@ exports.showAll = async (req, res) => {
     return res.status(500).json();
   }
 };
-
 exports.addDonation = async (req, res) => {
   try {
     if (req.files === null) {
@@ -27,7 +26,7 @@ exports.addDonation = async (req, res) => {
       itemName: req.body.itemName,
       itemImage: req.file.filename,
       itemDescription: req.body.itemDescription,
-      value: req.body.value,
+      value: Number(req.body.value),
     };
     const response = await insertDonation(data);
     // remove spaces (there may be some other characters that are invalid for url filenames...)
@@ -36,3 +35,34 @@ exports.addDonation = async (req, res) => {
     return res.status(500).json();
   }
 };
+exports.acceptDonationRequestById = async (req, res) => {
+  const donationId = req.params.id
+  const donationRequest = req.body
+  console.log(donationRequest)
+  try {
+    const response = await acceptDonationRequest(donationId, donationRequest);
+    // remove spaces (there may be some other characters that are invalid for url filenames...)
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json();
+  }
+};
+exports.showDonationsById = async (req, res) => {
+  try {
+    const getDonationsData = await findMyDonations(req.params.id);
+    return res.json(getDonationsData);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json();
+  }
+};
+exports.destroyDonation = async (req, res) => {
+  try {
+    const deletedEvent = await deleteDonation(req.params.id)
+    return res.json(deletedEvent)
+
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json()
+  }
+}

@@ -19,7 +19,7 @@ const upload = multer({
     })
 
 
-const {showAll, addDonation} = require('./controller')
+const {showAll, addDonation, showDonationsById, destroyDonation, acceptDonationRequestById} = require('./controller')
 
 // create a new Router instance
 const router = new Router()
@@ -27,6 +27,9 @@ const router = new Router()
 // define routes
 
 router.get('/', showAll)
+router.get('/my/:id', showDonationsById)
+router.put('/accept/:id', acceptDonationRequestById)
+router.delete('/my/del/:id', destroyDonation)
 router.post('/new', upload.single("image"), addDonation)
 
 // exporting router
