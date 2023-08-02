@@ -110,7 +110,7 @@ const DonationCard = (props) => {
           <CardMedia
             component="img"
             height="194"
-            image={`./images/${donation.itemImage}`}
+            image={`../images/${donation.itemImage}`}
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
@@ -119,16 +119,13 @@ const DonationCard = (props) => {
             <Typography variant="h6" color="text.secondary">
               Valued at: ${donation.value}
             </Typography>
+            <Typography variant="h6" color="text.secondary">
+              Contact: {donation.phoneNumber}
+            </Typography>
+            <Typography variant="h6" color="text.secondary">
+              {donation.firstname} {donation.lastname}
+            </Typography>
           </CardContent>
-          <CardActions disableSpacing sx={{ justifyContent: "center", mb: 2 }}>
-            <IconButton aria-label="add to favorites">
-              <Link href={``}>
-                <Button variant="contained" onClick={handleOpen}>
-                  Request Donation
-                </Button>
-              </Link>
-            </IconButton>
-          </CardActions>
           <Modal
             open={open}
             onClose={handleClose}

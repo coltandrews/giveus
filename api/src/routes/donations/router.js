@@ -19,7 +19,7 @@ const upload = multer({
     })
 
 
-const {showAll, addDonation, showDonationsById, destroyDonation, acceptDonationRequestById} = require('./controller')
+const {showAll, addDonation, showDonationsById, destroyDonation, acceptDonationRequestById, showDonationsByEventId} = require('./controller')
 
 // create a new Router instance
 const router = new Router()
@@ -28,6 +28,7 @@ const router = new Router()
 
 router.get('/', showAll)
 router.get('/my/:id', showDonationsById)
+router.get('/event/:id', showDonationsByEventId)
 router.put('/accept/:id', acceptDonationRequestById)
 router.delete('/my/del/:id', destroyDonation)
 router.post('/new', upload.single("image"), addDonation)

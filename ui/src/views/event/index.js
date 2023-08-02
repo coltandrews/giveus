@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { getMe, getMyDonations } from "../../utility/api";
+import { getDonationsByEventId, getMe, getEventById } from "../../utility/api";
 import { getToken } from "../../utility/utils";
 import { Box, Grid, Typography } from "@mui/material";
 import * as React from "react";
-import DonationCard from "../../components/DonationCard";
+import EventDonationCard from "../../components/EventDonationCard";
 import { useParams } from "react-router-dom";
 function MyEvent() {
-  const params = useParams()
+  const params = useParams();
   const [me, setMe] = useState();
+  const [eventData, setEventData] = useState();
   const [donations, setDonations] = useState();
 
   useEffect(() => {
@@ -23,18 +24,28 @@ function MyEvent() {
   useEffect(() => {
     const getDonationData = async () => {
       if (getToken()) {
-        const donationData = await getMyDonations(params.id);
+        const donationData = await getDonationsByEventId(params.id);
         setDonations(donationData);
-        console.log(donationData);
       }
     };
+    const getEventData = async () => {
+      if (getToken()) {
+        const eventData = await getEventById(params.id);
+        setEventData(eventData);
+      }
+    };
+
     getDonationData();
+    getEventData();
   }, [me]);
 
   if (!me) {
     return <></>;
   }
   if (!donations) {
+    return <></>;
+  }
+  if (!eventData) {
     return <></>;
   }
   return (
@@ -55,13 +66,18 @@ function MyEvent() {
         >
           <Grid item>
             <Typography variant="h4">
-              <i>Find a Dononation</i>
+              Donations for {eventData[0].eventName}
             </Typography>
           </Grid>
 
           <Grid container spacing={3} direction="row" sx={{ mt: "2%" }}>
             {donations.map((donation) => {
-              return <DonationCard donation={donation} me={me}></DonationCard>;
+              return (
+                <EventDonationCard
+                  donation={donation}
+                  me={me}
+                ></EventDonationCard>
+              );
             })}
           </Grid>
         </Grid>
