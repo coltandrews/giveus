@@ -11,7 +11,6 @@ import { Grid, Typography } from "@mui/material";
 
 const EventCard = (props) => {
   const { eventData } = props;
-  console.log(eventData)
 
   const convertDate = (date) => {
     let dateString = new Date(date).toLocaleDateString();

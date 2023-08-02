@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const jwt = require("jsonwebtoken");
 
-const { findAll, insertEvent, findEventByNonprofitId, deleteEvent, modifyEvent, findMyEvents } = require("./service");
+const { findAll, insertEvent, findEventByNonprofitId,findEventById, deleteEvent, modifyEvent, findMyEvents } = require("./service");
 
 exports.showAll = async (req, res) => {
   try {
@@ -17,6 +17,16 @@ exports.showAll = async (req, res) => {
 exports.showEventsByNonprofitId = async (req, res) => {
   try {
     const getEventsData = await findEventByNonprofitId(req.params.id);
+    return res.json(getEventsData);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json();
+  }
+};
+
+exports.showEventById = async (req, res) => {
+  try {
+    const getEventsData = await findEventById(req.params.id);
     return res.json(getEventsData);
   } catch (error) {
     console.log(error);
@@ -50,7 +60,6 @@ exports.addEvent = async (req, res) => {
       "eventDescription": req.body.eventDescription,
       "eventDate": req.body.eventDate
     }
-    console.log(req.file)
     const response = await insertEvent(data)
 
     // remove spaces (there may be some other characters that are invalid for url filenames...)

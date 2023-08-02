@@ -27,6 +27,17 @@ exports.findMyDonations = async (id) => {
   return results;
 };
 
+exports.findDonationsByEventId = async (id) => {
+  //console.log(to_knex("SELECT donations.id, donations.itemName, donations.itemDescription, donations.createdAt, COUNT(pendingdonations.id) as requestCount FROM donations LEFT JOIN pendingdonations ON donations.id = pendingdonations.donationid GROUP BY donations.id;"))
+  const results = await knex
+    .select("d.*", "u.*", "d.id as donationId")
+    .where('eventId',id)
+    .from({ d: "donations" })
+    .innerJoin({ u: "users" }, "d.userId", "=", "u.id");
+  return results;
+};
+
+
 exports.insertDonation = async (data) => {
   const results = await knex("donations").insert(data);
   return results;

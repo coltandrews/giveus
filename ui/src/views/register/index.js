@@ -32,7 +32,6 @@ function Register() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(userData);
 
     try {
       const response = await register(userData);

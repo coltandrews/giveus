@@ -77,7 +77,6 @@ function MyDonations(props) {
       setOpen(true);
       const results = await getRequestsByDonationId(params.id);
       setRequests(results);
-      console.log(results);
     }
   };
   const handleClose = () => {
@@ -87,7 +86,6 @@ function MyDonations(props) {
   const handleDeleteDonations = async () => {
     Promise.allSettled(
       idsToDelete.map(async (id) => {
-        console.log(id);
         return await deleteMyDonation(id);
       })
     ).then(async () => {

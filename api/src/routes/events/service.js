@@ -19,6 +19,15 @@ exports.findEventByNonprofitId = async (id) => {
   );
   return results;
 };
+exports.findEventById = async (id) => {
+  const results = await knex("events").select("*").where('events.id', id).innerJoin(
+    'users', 
+    'events.userId', 
+    '=', 
+    'users.id'
+  );
+  return results;
+};
 exports.findMyEvents = async (id) => {
   const results = await knex("events").select("*").where('userId', id);
   return results;

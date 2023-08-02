@@ -55,7 +55,6 @@ export const getMe = async () => {
   if (!response.ok) {
     throw new Error(`Status Code: ${response?.status} - ${responseData?.message}`);
   }
-  console.log('response:',responseData)
   return responseData;
 };
 export const getAllDonations = async () => {
@@ -115,12 +114,50 @@ export const getEventsByUserId = async (id) => {
   }
   return responseData;
 };
+export const getDonationsByEventId = async (id) => {
+  const token = getToken();
+  if (!token) {
+    throw new Error(`Missing User Token`);
+  }
+  const response = await fetch(`${baseUrl}/donations/event/${id}`, {
+    method: "GET",
+    headers: new Headers({
+      Authorization: `Bearer ${token}`, //Token is required for protected Routes
+    }),
+  });
+  const responseData = await response.json();
+  if (!response.ok) {
+    throw new Error(
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
+  }
+  return responseData;
+};
 export const getMyEvents = async (id) => {
   const token = getToken();
   if (!token) {
     throw new Error(`Missing User Token`);
   }
   const response = await fetch(`${baseUrl}/events/my/${id}`, {
+    method: "GET",
+    headers: new Headers({
+      Authorization: `Bearer ${token}`, //Token is required for protected Routes
+    }),
+  });
+  const responseData = await response.json();
+  if (!response.ok) {
+    throw new Error(
+      `Status Code: ${response?.status} - ${responseData?.message}`
+    );
+  }
+  return responseData;
+};
+export const getEventById = async (id) => {
+  const token = getToken();
+  if (!token) {
+    throw new Error(`Missing User Token`);
+  }
+  const response = await fetch(`${baseUrl}/events/id/${id}`, {
     method: "GET",
     headers: new Headers({
       Authorization: `Bearer ${token}`, //Token is required for protected Routes
@@ -143,7 +180,6 @@ export const postDonation = async (data) => {
 
   const responseData = await response.json();
   
-  console.log(responseData)
   if (!response.ok) {
     throw new Error(
       `Status Code: ${response?.status} - ${responseData?.message}`
@@ -161,7 +197,6 @@ export const postEvent = async (data) => {
 
   const responseData = await response.json();
   
-  console.log(responseData)
   if (!response.ok) {
     throw new Error(
       `Status Code: ${response?.status} - ${responseData?.message}`
@@ -178,7 +213,6 @@ export const deleteMyEvent = async (id) => {
 
   const responseData = await response.json();
   
-  console.log(responseData)
   if (!response.ok) {
     throw new Error(
       `Status Code: ${response?.status} - ${responseData?.message}`
@@ -198,7 +232,6 @@ export const updateEvent = async (data) => {
 
   const responseData = await response.json();
   
-  console.log(responseData)
   if (!response.ok) {
     throw new Error(
       `Status Code: ${response?.status} - ${responseData?.message}`
@@ -208,7 +241,6 @@ export const updateEvent = async (data) => {
   return responseData;
 };
 export const requestDonationForEvent = async (data) => {
-  console.log('api', data)
   const response = await fetch(`${baseUrl}/pending/request/`, {
     method: "POST",
     headers: new Headers({
@@ -219,7 +251,6 @@ export const requestDonationForEvent = async (data) => {
 
   const responseData = await response.json();
   
-  console.log(responseData)
   if (!response.ok) {
     throw new Error(
       `Status Code: ${response?.status} - ${responseData?.message}`
@@ -247,7 +278,6 @@ export const getMyDonations = async (id) => {
   }
   return responseData;
 };
-
 export const getRequestsByDonationId = async (id) => {
   const token = getToken();
   if (!token) {
@@ -275,7 +305,6 @@ export const deleteMyDonation = async (id) => {
 
   const responseData = await response.json();
   
-  console.log(responseData)
   if (!response.ok) {
     throw new Error(
       `Status Code: ${response?.status} - ${responseData?.message}`
@@ -295,7 +324,6 @@ export const updateDonation = async (data) => {
 
   const responseData = await response.json();
   
-  console.log(responseData)
   if (!response.ok) {
     throw new Error(
       `Status Code: ${response?.status} - ${responseData?.message}`
@@ -315,7 +343,6 @@ export const acceptDonationRequest = async (id, data) => {
 
   const responseData = await response.json();
   
-  console.log(responseData)
   if (!response.ok) {
     throw new Error(
       `Status Code: ${response?.status} - ${responseData?.message}`

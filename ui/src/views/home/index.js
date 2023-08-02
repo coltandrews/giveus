@@ -27,7 +27,6 @@ function Home() {
       if (getToken()) {
         const donationData = await getAllDonations();
         setDonations(donationData);
-        console.log(donationData)
       }
     };
     const getNonprofitData = async () => {

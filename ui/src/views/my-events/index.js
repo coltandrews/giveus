@@ -28,12 +28,19 @@ function MyEvents(props) {
       headerName: "Date",
       width: 130,
       editable: true,
-      valueFormatter: params => new Date(params?.value).toLocaleDateString()
-    }
+      valueFormatter: (params) => new Date(params?.value).toLocaleDateString(),
+    },
+    {
+      width: 180,
+      renderCell: (params) => (
+        <>
+          <Link href={`/event/${params.id}`}><Button variant="contained">View Donations</Button></Link>
+        </>
+      ),
+    },
   ];
-  
+
   const rows = events;
-  console.log(rows);
 
   useEffect(() => {
     const getEvents = async () => {
@@ -46,7 +53,6 @@ function MyEvents(props) {
   const handleDeleteEvents = async () => {
     Promise.allSettled(
       idsToDelete.map(async (id) => {
-        console.log(id);
         return await deleteMyEvent(id);
       })
     ).then(async () => {
