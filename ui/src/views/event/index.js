@@ -10,6 +10,7 @@ function MyEvent() {
   const [me, setMe] = useState();
   const [eventData, setEventData] = useState();
   const [donations, setDonations] = useState();
+  console.log(donations);
 
   useEffect(() => {
     const getMyData = async () => {
@@ -53,9 +54,9 @@ function MyEvent() {
       <Box
         display="flex"
         justifyContent="center"
-        alignItems="center"
         minHeight="100vh"
         marginBottom="50px"
+        marginTop={2}
       >
         <Grid
           containe
@@ -69,17 +70,22 @@ function MyEvent() {
               Donations for {eventData[0].eventName}
             </Typography>
           </Grid>
-
-          <Grid container spacing={3} direction="row" sx={{ mt: "2%" }}>
-            {donations.map((donation) => {
-              return (
-                <EventDonationCard
-                  donation={donation}
-                  me={me}
-                ></EventDonationCard>
-              );
-            })}
-          </Grid>
+          {donations.length > 0 ? (
+            <Grid container spacing={3} direction="row" sx={{ mt: "2%" }}>
+              {donations.map((donation) => {
+                return (
+                  <EventDonationCard
+                    donation={donation}
+                    me={me}
+                  ></EventDonationCard>
+                );
+              })}
+            </Grid>
+          ) : (
+            <Typography fontStyle={'italic'} variant="h5" marginTop={2}>
+              No donations found, please request donations for your event.
+            </Typography>
+          )}
         </Grid>
       </Box>
     </>

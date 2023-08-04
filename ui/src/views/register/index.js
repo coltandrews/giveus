@@ -46,7 +46,7 @@ function Register() {
   };
   return (
     <div>
-      <Container component="main" maxWidth="xs" sx={{padding: '5%'}}>
+      <Container component="main" maxWidth="xs" sx={{padding: '2%'}}>
         <CssBaseline />
         <Box
           sx={{
