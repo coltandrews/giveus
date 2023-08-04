@@ -11,6 +11,7 @@ import NonprofitEvents from "./views/nonprofit-events";
 import MyEvents from "./views/my-events";
 import MyDonations from "./views/my-donations";
 import MyEvent from "./views/event";
+import Landing from "./views/landing";
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
       <ThemeContextProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Login />} />
+            <Route index element={<Landing />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/landing" element={<Landing />} />
             <Route path="/settings" />
             <Route path="/home" element={<Home />} />
             <Route path="/profile/me" />

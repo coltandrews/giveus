@@ -16,12 +16,14 @@ import {
 import { Fragment } from "react";
 import Container from "@mui/material/Container";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getMe, postDonation } from "../../utility/api";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import CloseIcon from "@mui/icons-material/Close";
 
 const NewDonation = (props) => {
+  const navigate = useNavigate();
   const [newDonation, setNewDonation] = useState();
   const [image, setImage] = useState();
   const [open, setOpen] = useState(false);
@@ -52,7 +54,9 @@ const NewDonation = (props) => {
     formData.append("itemDescription", newDonation.itemDescription);
     formData.append("value", newDonation.value);
     formData.append("userId", me.id);
+    setTimeout(()=>{navigate(`/my/donations/${me.id}`);}, 1500)
     const response = await postDonation(formData);
+      
   };
 
   const action = (
@@ -137,7 +141,7 @@ const NewDonation = (props) => {
                     <OutlinedInput
                       name="value"
                       id="value"
-                      onChange={(e)=>handleChange(e)}
+                      onChange={(e) => handleChange(e)}
                       startAdornment={
                         <InputAdornment position="start">$</InputAdornment>
                       }

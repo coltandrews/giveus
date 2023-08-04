@@ -23,8 +23,10 @@ import CloseIcon from "@mui/icons-material/Close";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { useNavigate } from "react-router-dom";
 
 const NewEvent = (props) => {
+  const navigate = useNavigate()
   const [newEvent, setNewDonation] = useState();
   const [image, setImage] = useState();
   const [eventDate, setEventDate] = useState();
@@ -61,6 +63,7 @@ const NewEvent = (props) => {
     formData.append("eventDescription", newEvent.eventDescription);
     formData.append("eventDate", eventDate);
     formData.append("userId", me.id);
+    setTimeout(()=>{navigate(`/my/events/${me.id}`);}, 1500)
     const response = await postEvent(formData);
   };
 
