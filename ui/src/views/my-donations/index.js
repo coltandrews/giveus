@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom";
 function MyDonations(props) {
   const params = useParams();
   const [donations, setDonations] = useState();
+  console.log(donations)
   const [requests, setRequests] = useState();
 
   const [idsToDelete, setIdsToDelete] = useState();
@@ -46,6 +47,17 @@ function MyDonations(props) {
       headerName: "Description",
       width: 280,
       editable: true,
+    },
+    {
+      field: "value",
+      headerName: "Value",
+      width: 280,
+      editable: true,
+      renderCell: (params) => (
+        <>
+          ${params.value}
+        </>
+      ),
     },
     {
       field: "requestcount",

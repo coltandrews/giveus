@@ -16,6 +16,7 @@ exports.findMyDonations = async (id) => {
       `donations.id`,
       `donations.itemName`,
       `donations.itemDescription`,
+      `donations.value`,
       `donations.createdAt`,
       knex.raw(`count(pendingdonations.id) AS requestcount`)
     )

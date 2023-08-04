@@ -63,7 +63,7 @@ function Home() {
             r
           >
             <Grid item>
-              <Typography variant="h4"><i>Find a Dononation</i></Typography>
+              <Typography variant="h2">Donors Near You</Typography>
             </Grid>
 
             <Grid
@@ -100,7 +100,7 @@ function Home() {
             r
           >
             <Grid item>
-              <Typography variant="h5"><i>Find a Nonprofit</i></Typography>
+              <Typography variant="h2">Local Nonprofits</Typography>
             </Grid>
             <Grid
               container

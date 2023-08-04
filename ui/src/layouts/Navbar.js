@@ -344,7 +344,7 @@ function Navbar() {
               <>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar sx={{ bgcolor: "#DBD8AE", color: "#994636" }}>
+                    <Avatar sx={{ bgcolor: "#DBD8AE", color: "#153243" }}>
                       {initial}
                     </Avatar>
                   </IconButton>
