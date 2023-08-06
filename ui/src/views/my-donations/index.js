@@ -7,7 +7,7 @@ import {
   acceptDonationRequest,
 } from "../../utility/api";
 import { DataGrid } from "@mui/x-data-grid";
-import { Button, Link, Box, Container, Grid } from "@mui/material";
+import { Button, Link, Box, Container, Grid, Typography, Divider } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import { useParams } from "react-router-dom";
 
@@ -123,8 +123,10 @@ function MyDonations(props) {
   }
   return (
     <>
-      <Container sx={{ mt: 5, mb: 5 }}>
-        <Box sx={{ height: 620, width: "100%", bgcolor: "#DBD8AE" }}>
+      <Container sx={{ mt: 5, mb: 5, textAlign: 'left' }}>
+        <Typography variant="h3">My Donations</Typography>
+        <Divider sx={{mt: 2, mb: 2, bgcolor: 'black'}}></Divider>
+        <Box sx={{ height: 420, width: "100%", bgcolor: "#DBD8AE" }}>
           <DataGrid
             sx={{ fontSize: "18px" }}
             editMode="row"
