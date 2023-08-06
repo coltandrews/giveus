@@ -351,6 +351,3 @@ export const acceptDonationRequest = async (id, data) => {
   
   return responseData;
 };
-
-
-

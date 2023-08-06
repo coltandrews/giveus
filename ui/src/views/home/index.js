@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMe, getAllDonations, getAllNonprofits } from "../../utility/api";
 import { getToken } from "../../utility/utils";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, Divider } from "@mui/material";
 import * as React from "react";
 import DonationCard from "../../components/DonationCard";
 import NonprofitCard from "../../components/NonprofitCard";
@@ -62,8 +62,9 @@ function Home() {
             sx={{ width: "80%", mt: 3 }}
             r
           >
-            <Grid item>
+            <Grid item sx={{textAlign: 'left'}}>
               <Typography variant="h2">Donors Near You</Typography>
+              <Divider sx={{mt: 2, bgcolor: "black"}}></Divider>
             </Grid>
 
             <Grid
@@ -99,8 +100,9 @@ function Home() {
             sx={{ width: "80%", mt: 3 }}
             r
           >
-            <Grid item>
+            <Grid item sx={{textAlign: 'left'}}>
               <Typography variant="h2">Local Nonprofits</Typography>
+              <Divider sx={{mt: 2, bgcolor: "black"}}></Divider>
             </Grid>
             <Grid
               container

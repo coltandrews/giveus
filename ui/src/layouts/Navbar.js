@@ -167,7 +167,7 @@ function Navbar() {
   if (getToken() && me) {
     return (
       <AppBar position="static">
-        <Container maxWidth="xl">
+        <Container maxWidth="xxl">
           <Toolbar disableGutters>
             <VolunteerActivismRoundedIcon
               fontSize="large"

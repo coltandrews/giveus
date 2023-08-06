@@ -1,13 +1,19 @@
 import { useEffect, useState, useCallback } from "react";
-import { updateEvent, deleteMyEvent, getMyEvents } from "../../utility/api";
+import {
+  updateEvent,
+  deleteMyEvent,
+  getMyEvents,
+  getMe,
+} from "../../utility/api";
 import { DataGrid } from "@mui/x-data-grid";
-import { Button, Link, Box, Container } from "@mui/material";
+import { Button, Link, Box, Grid, Typography, Divider } from "@mui/material";
 import { useParams } from "react-router-dom";
 
 function MyEvents(props) {
   const params = useParams();
   const [events, setEvents] = useState();
   const [idsToDelete, setIdsToDelete] = useState();
+  const [me, setMe] = useState();
 
   const columns = [
     { field: "id", headerName: "ID", width: 70, editable: true },
@@ -18,23 +24,12 @@ function MyEvents(props) {
       editable: true,
     },
     {
-      field: "eventDescription",
-      headerName: "Description",
-      width: 180,
-      editable: true,
-    },
-    {
-      field: "eventDate",
-      headerName: "Date",
-      width: 130,
-      editable: true,
-      valueFormatter: (params) => new Date(params?.value).toLocaleDateString(),
-    },
-    {
       width: 180,
       renderCell: (params) => (
         <>
-          <Link href={`/event/${params.id}`}><Button variant="contained">View Donations</Button></Link>
+          <Link href={`/event/${params.id}`}>
+            <Button variant="contained">View Donations</Button>
+          </Link>
         </>
       ),
     },
@@ -65,44 +60,77 @@ function MyEvents(props) {
     return await updateEvent(updatedRow);
   }, []);
 
+  useEffect(() => {
+    const getMyData = async () => {
+      const results = await getMe();
+      setMe(results);
+      console.log(results);
+    };
+    getMyData();
+  }, []);
+
   if (!events) {
     return <div>Loading...</div>;
   }
+  if(!me){
+    return <></>
+  }
   return (
     <>
-      <Container sx={{ mt: 5, mb: 5 }}>
-        <Box sx={{ height: 620, width: "100%", bgcolor: "#DBD8AE" }}>
-          <DataGrid
-            sx={{ fontSize: "18px" }}
-            editMode="row"
-            rows={rows}
-            columns={columns}
-            initialState={{
-              pagination: {
-                paginationModel: { page: 0, pageSize: 10 },
-              },
-            }}
-            pageSizeOptions={[5, 10]}
-            checkboxSelection
-            processRowUpdate={processRowUpdate}
-            onRowSelectionModelChange={(ids) => {
-              setIdsToDelete(ids);
-            }}
-          />
-          <Button
-            sx={{ margin: "10px" }}
-            variant="contained"
-            onClick={handleDeleteEvents}
-          >
-            Delete Selected Events
-          </Button>
-          <Link href="/event/new">
-            <Button sx={{ margin: "10px" }} variant="contained">
-              Create New Event
-            </Button>
-          </Link>
-        </Box>
-      </Container>
+      <Grid container sx={{ display: "flex" }}>
+        <Grid item xs={12} sm={6} sx={{ mt: 5, mb: 5}} >
+          <Typography variant={"h2"}>{me.organizationName}</Typography>
+          <Box sx={{mt:2}}>
+            <Typography variant={"h6"}>{me.description}</Typography>
+          </Box>
+          <Box sx={{mt:4}}><img src={`../../images/${me.image}`} width={'50%'}></img></Box>
+        </Grid>
+        <Grid
+          item
+          maxWidth={"sm"}
+          sx={{ mt: 5, mb: 5, textAlign: "left" }}
+          xs={12}
+          sm={6}
+        >
+          <Typography variant={"h5"} sx={{ ml: 4 }}>
+            Upcoming Events
+          </Typography>
+          <Divider sx={{ m: 2, width: "80%", bgcolor: "black" }}></Divider>
+          <Box sx={{ height: 420, width: "80%", bgcolor: "#DBD8AE", ml: 2 }}>
+            <DataGrid
+              sx={{ fontSize: "18px" }}
+              editMode="row"
+              rows={rows}
+              columns={columns}
+              initialState={{
+                pagination: {
+                  paginationModel: { page: 0, pageSize: 10 },
+                },
+              }}
+              pageSizeOptions={[5, 10]}
+              checkboxSelection
+              processRowUpdate={processRowUpdate}
+              onRowSelectionModelChange={(ids) => {
+                setIdsToDelete(ids);
+              }}
+            />
+            <Box display={'flex'} alignItems={'center'} justifyContent={'center'}>
+              <Button
+                sx={{ margin: "10px" }}
+                variant="contained"
+                onClick={handleDeleteEvents}
+              >
+                Delete Selected Events
+              </Button>
+              <Link href="/event/new">
+                <Button sx={{ margin: "10px" }} variant="contained">
+                  Create New Event
+                </Button>
+              </Link>
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
     </>
   );
 }

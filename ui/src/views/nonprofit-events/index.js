@@ -42,23 +42,23 @@ function NonprofitEvents() {
       <Box
         display="flex"
         justifyContent="center"
-        alignItems="center"
         minHeight="100vh"
         marginBottom="50px"
       >
         <Grid
-          containe
+          container
           spacing={3}
-          direction="column"
+          display={'flex'}
+          flexDirection={"column"}
+          alignItems={'center'}
           sx={{ width: "80%", mt: 3 }}
-          r
         >
           <Grid item>
             <Typography variant='h5'>
               Upcoming Events for <b>{eventsData[0].organizationName}</b>
             </Typography>
           </Grid>
-          <Grid container spacing={3} direction="column" sx={{ mt: 3 }}>
+          <Grid container spacing={3} direction="column" sx={{ mt: 3, width: '70%' }}>
             {eventsData.map((eventData) => {
               return <EventCard eventData={eventData}></EventCard>;
             })}
