@@ -2,70 +2,70 @@
   "id": 1,
   "userId": 11,
   "itemName": "Sunset Boat Cruise",
-  "value": 376.02,
+  "value": 376.00,
   "itemDescription": "A night on the Palmetto Breeze for 10 guests.",
   "itemImage": "sunsetboat.jpg"
 }, {
   "id": 2,
   "userId": 12,
   "itemName": "Night on Folly",
-  "value": 493.19,
+  "value": 493.00,
   "itemDescription": "A night for 2 in a luxury Folly Beach rental",
   "itemImage": "follynight.jpg"
 }, {
   "id": 3,
   "userId": 13,
   "itemName": "Workout Class Subscription",
-  "value": 233.70,
+  "value": 233.00,
   "itemDescription": "3 months of weekly workout classes.",
   "itemImage": "workoutclass.jpg"
 }, {
   "id": 4,
   "userId": 14,
   "itemName": "Cutting Board",
-  "value": 85.14,
+  "value": 85.00,
   "itemDescription": "A custom made cutting board by local artist.",
   "itemImage": "cuttingboard.jpg"
 }, {
   "id": 5,
   "userId": 15,
   "itemName": "$275 Giftcard to Halls Chophouse",
-  "value": 275.64,
+  "value": 275.00,
   "itemDescription": "A giftcard and more for a night at Halls Chophouse.",
   "itemImage": "hallsgiftcard.jpg"
 }, {
   "id": 6,
   "userId": 16,
   "itemName": "Clay Shooting Lesson",
-  "value": 139.84,
+  "value": 139.00,
   "itemDescription": "An hour lesson on shooting skeet.",
   "itemImage": "claylesson.jpg"
 }, {
   "id": 7,
   "userId": 17,
   "itemName": "Private Chef for 8 People",
-  "value": 162.23,
+  "value": 162.00,
   "itemDescription": "A private 3 course meal for you and 7 of your friends.",
   "itemImage": "chefparty.jpg"
 }, {
   "id": 8,
   "userId": 18,
   "itemName": "Custom Leatherwork",
-  "value": 84.88,
+  "value": 84.00,
   "itemDescription": "Custom belt, wallet or purse of your choosing.",
   "itemImage": "leather.jpg"
 }, {
   "id": 9,
   "userId": 19,
   "itemName": "Horseback Trail Ride",
-  "value": 383.61,
+  "value": 383.00,
   "itemDescription": "A 2 hour trailride through Francis Marion National Park",
   "itemImage": "horseride.jpg"
 }, {
   "id": 10,
   "userId": 20,
   "itemName": "Night on Isle of Palms",
-  "value": 384.30,
+  "value": 384.00,
   "itemDescription": "A night for 2 in a luxurious Isle of Palms condo.",
   "itemImage": "iop.jpg"
 }]

@@ -63,7 +63,7 @@ function Home() {
             r
           >
             <Grid item sx={{textAlign: 'left'}}>
-              <Typography variant="h2">Donors Near You</Typography>
+              <Typography variant="h2">Donations Near You</Typography>
               <Divider sx={{mt: 2, bgcolor: "black"}}></Divider>
             </Grid>
 

@@ -1,7 +1,7 @@
 import { Box, Container, Typography, CssBaseline, Button, Link } from "@mui/material";
 import * as React from "react";
-import EventDonationCard from "../../components/EventDonationCard";
-import { useParams } from "react-router-dom";
+import VolunteerActivismRoundedIcon from "@mui/icons-material/VolunteerActivismRounded";
+
 function Landing() {
   
   return (
@@ -14,9 +14,10 @@ function Landing() {
             display: "flex",
             flexDirection: "column",
             alignItems: 'center',
-            marginTop: '20%'
+            marginTop: '10%'
           }}
         >
+          <VolunteerActivismRoundedIcon sx={{fontSize: '80px', bgcolor: '38369A'}} ></VolunteerActivismRoundedIcon>
           <Typography variant={"h1"}>Welcome to GiveUs</Typography>
           <Box width={"50%"} fontStyle={"italic"}>
             <Typography variant={"h6"}>
