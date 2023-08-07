@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, Fragment } from "react";
 import {
   updateDonation,
   deleteMyDonation,
@@ -7,18 +7,29 @@ import {
   acceptDonationRequest,
 } from "../../utility/api";
 import { DataGrid } from "@mui/x-data-grid";
-import { Button, Link, Box, Container, Grid, Typography, Divider } from "@mui/material";
+import {
+  Button,
+  Link,
+  Box,
+  Container,
+  Grid,
+  Typography,
+  Divider,
+  Snackbar
+} from "@mui/material";
 import Modal from "@mui/material/Modal";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 import { useParams } from "react-router-dom";
 
 function MyDonations(props) {
   const params = useParams();
   const [donations, setDonations] = useState();
-  console.log(donations)
   const [requests, setRequests] = useState();
 
   const [idsToDelete, setIdsToDelete] = useState();
   const [open, setOpen] = useState(false);
+  const [snackOpen, setSnackOpen] = useState(false);
 
   const style = {
     position: "absolute",
@@ -33,6 +44,25 @@ function MyDonations(props) {
     px: 4,
     pb: 3,
   };
+ 
+  const handleSnackClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setSnackOpen(false);
+  };
+  const action = (
+    <Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleSnackClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </Fragment>
+  );
 
   const columns = [
     { field: "id", headerName: "ID", width: 70, editable: true },
@@ -53,11 +83,7 @@ function MyDonations(props) {
       headerName: "Value",
       width: 280,
       editable: true,
-      renderCell: (params) => (
-        <>
-          ${params.value}
-        </>
-      ),
+      renderCell: (params) => <>${params.value}</>,
     },
     {
       field: "requestcount",
@@ -112,6 +138,7 @@ function MyDonations(props) {
 
   const handleRequestAccept = async (e, request) => {
     setOpen(false);
+    setSnackOpen(true);
     const data = {
       eventId: request.pendingEventId,
     };
@@ -123,9 +150,9 @@ function MyDonations(props) {
   }
   return (
     <>
-      <Container sx={{ mt: 5, mb: 5, textAlign: 'left' }}>
+      <Container sx={{ mt: 5, mb: 5, textAlign: "left" }}>
         <Typography variant="h3">My Donations</Typography>
-        <Divider sx={{mt: 2, mb: 2, bgcolor: 'black'}}></Divider>
+        <Divider sx={{ mt: 2, mb: 2, bgcolor: "black" }}></Divider>
         <Box sx={{ height: 420, width: "100%", bgcolor: "#DBD8AE" }}>
           <DataGrid
             sx={{ fontSize: "18px" }}
@@ -165,8 +192,8 @@ function MyDonations(props) {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{ ...style, width: 400 }}>
-          <h2 id="parent-modal-title">Choose Event to Accept</h2>
+        <Box sx={{ ...style }}>
+          <h2 id="parent-modal-title">Active Requests</h2>
           {requests ? (
             requests.map((request) => {
               return (
@@ -192,6 +219,12 @@ function MyDonations(props) {
           )}
         </Box>
       </Modal>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={6000}
+        message="Donation Accepted!"
+        action={action}
+      />
     </>
   );
 }

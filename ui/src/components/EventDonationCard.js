@@ -2,16 +2,11 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
 import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import Snackbar from "@mui/material/Snackbar";
 import { useEffect, useState, Fragment } from "react";
-import { Link, Grid, Button, Typography } from "@mui/material";
-import { getMyEvents, requestDonationForEvent } from "../utility/api";
-import CloseIcon from "@mui/icons-material/Close";
+import { Grid, Typography } from "@mui/material";
+import { getMyEvents } from "../utility/api";
+
 
 const DonationCard = (props) => {
   const style = {
@@ -44,44 +39,9 @@ const DonationCard = (props) => {
     let dateString = new Date(date).toLocaleDateString();
     return "Posted on " + dateString;
   };
-  const handleOpen = (e) => {
-    e.preventDefault();
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleSnackClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setSnackOpen(false);
-  };
+ 
 
-  const handleDonationRequest = async (e, eventId) => {
-    setOpen(false);
-    setSnackOpen(true);
-    const data = {
-      pendingEventId: eventId,
-      donorId: donation.userId,
-      auctioneerId: me.id,
-      donationId: donation.donationId,
-      itemName: donation.itemName,
-    };
-    const response = await requestDonationForEvent(data);
-  };
-  const action = (
-    <Fragment>
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleSnackClose}
-      >
-        <CloseIcon fontSize="small" />
-      </IconButton>
-    </Fragment>
-  );
+ 
   if (!myEvents) {
     return <></>;
   }
@@ -120,41 +80,16 @@ const DonationCard = (props) => {
               Valued at: ${donation.value}
             </Typography>
             <Typography variant="h6" color="text.secondary">
+              {donation.firstname} {donation.lastname}
+            </Typography>
+            <Typography variant="h6" color="text.secondary">
               Contact: {donation.phoneNumber}
             </Typography>
             <Typography variant="h6" color="text.secondary">
-              {donation.firstname} {donation.lastname}
+                   {donation.email}
             </Typography>
+           
           </CardContent>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="parent-modal-title"
-            aria-describedby="parent-modal-description"
-          >
-            <Box sx={{ ...style, width: 400 }}>
-              <h2 id="parent-modal-title">Choose Event</h2>
-              {myEvents.map((myEvent) => {
-                return (
-                  <div>
-                    {myEvent.eventName}
-                    <Button
-                      onClick={(e) => handleDonationRequest(e, myEvent.id)}
-                    >
-                      Request
-                    </Button>
-                  </div>
-                );
-              })}
-            </Box>
-          </Modal>
-          <Snackbar
-            open={snackOpen}
-            autoHideDuration={6000}
-            onClose={handleSnackClose}
-            message="Donation Requested!"
-            action={action}
-          />
         </Card>
       </Grid>
     </>

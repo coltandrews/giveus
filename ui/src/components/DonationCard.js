@@ -140,7 +140,7 @@ const DonationCard = (props) => {
               {myEvents.map((myEvent) => {
                 return (
                   <div>
-                    {myEvent.eventName}
+                    {myEvent.eventName} - 
                     <Button
                       onClick={(e) => handleDonationRequest(e, myEvent.id)}
                     >

@@ -72,25 +72,29 @@ function MyEvents(props) {
   if (!events) {
     return <div>Loading...</div>;
   }
-  if(!me){
-    return <></>
+  if (!me) {
+    return <></>;
   }
   return (
     <>
       <Grid container sx={{ display: "flex" }}>
-        <Grid item xs={12} sm={6} sx={{ mt: 5, mb: 5}} >
-          <Typography variant={"h2"}>{me.organizationName}</Typography>
-          <Box sx={{mt:2}}>
+        <Grid item xs={12} sm={12} md={6} lg={6} sx={{ mt: 10, mb: 5 }}>
+          <Typography sx={{ml: 5, width: '90%' }} variant={"h2"}>{me.organizationName}</Typography>
+          <Box sx={{ mt: 2, ml: 7, width: '80%' }}>
             <Typography variant={"h6"}>{me.description}</Typography>
           </Box>
-          <Box sx={{mt:4}}><img src={`../../images/${me.image}`} width={'50%'}></img></Box>
+          <Box sx={{ mt: 4, ml: 1 }}>
+            <img src={`../../images/${me.image}`} width={"50%"}></img>
+          </Box>
         </Grid>
         <Grid
           item
           maxWidth={"sm"}
           sx={{ mt: 5, mb: 5, textAlign: "left" }}
           xs={12}
-          sm={6}
+          sm={12}
+          md={6}
+          lg={6}
         >
           <Typography variant={"h5"} sx={{ ml: 4 }}>
             Upcoming Events
@@ -114,7 +118,11 @@ function MyEvents(props) {
                 setIdsToDelete(ids);
               }}
             />
-            <Box display={'flex'} alignItems={'center'} justifyContent={'center'}>
+            <Box
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent={"center"}
+            >
               <Button
                 sx={{ margin: "10px" }}
                 variant="contained"
