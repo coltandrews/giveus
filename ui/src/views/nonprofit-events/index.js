@@ -9,6 +9,7 @@ function NonprofitEvents() {
   const params = useParams();
   const [me, setMe] = useState();
   const [eventsData, setEventsData] = useState();
+  console.log(eventsData)
 
   useEffect(() => {
     const getMyData = async () => {

@@ -19,7 +19,7 @@ const EventCard = (props) => {
 
   return (
     <>
-      <Grid item style={{ display: "flex" }} lg={3} md={3} sm={6} xs={12}>
+      <Grid item lg={3} md={3} sm={3} xs={3}>
         <Card
           style={{
             display: "flex",
